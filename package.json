@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
+  "homepage": "https://agustincarbajal1997.github.io/conociendonos/",
   "description": "Juego de cartas de conversación para una noche con amigos, parejas y familia alrededor de un solo celular.",
   "scripts": {
     "dev": "vite --host",

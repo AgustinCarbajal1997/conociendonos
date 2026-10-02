@@ -6,6 +6,7 @@ Juego de cartas de conversación (estilo *En Palabras*) para una noche con amigo
 - Modo **Noche**: arma sola la secuencia rompehielo → amigos → parejas → familia → profundidad.
 - Mazo suelto en modo progresivo, mezclado o por categoría.
 - PWA: funciona sin señal después de la primera carga. Sin cuenta, sin backend.
+- Publicada en **https://agustincarbajal1997.github.io/conociendonos/** (se redeploya sola con cada push a `main`).
 
 ## Correr
 
