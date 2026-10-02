@@ -17,7 +17,7 @@ export default defineConfig({
       manifest: {
         name: 'Sale a la Luz',
         short_name: 'Sale a la Luz',
-        description: 'Cartas de conversación para una noche con amigos, parejas y familia.',
+        description: 'Cartas de conversación: lo que nunca se dijo sale a la luz con la pregunta justa. Una noche con amigos, parejas y familia, un celular en el centro.',
         lang: 'es',
         theme_color: '#F7F3EE',
         background_color: '#F7F3EE',

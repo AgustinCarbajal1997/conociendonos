@@ -23,7 +23,7 @@ export default function Inicio() {
           <span className="etiqueta text-muted" style={{ letterSpacing: '0.16em', fontWeight: 400 }}>Cartas de conversación</span>
         </div>
         <p className="m-0 mt-1.5 max-w-[300px] text-center text-base leading-[1.45] text-muted" style={{ textWrap: 'pretty' }}>
-          Para una noche con amigos, parejas y familia. Un celular en el centro, una pregunta por pantalla.
+          Lo que nunca se dijo sale a la luz con la pregunta justa. Una noche con amigos, parejas y familia, un celular en el centro.
         </p>
       </div>
       <div className="flex-1" />
