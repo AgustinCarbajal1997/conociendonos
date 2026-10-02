@@ -1,33 +1,25 @@
 interface Props { tamano?: number; className?: string }
 
-/** Marca de Sale a la Luz: un sol que asoma detrás de una carta. Sin fondo, sirve sobre cualquier color. */
-export default function Logo({ tamano = 96, className = '' }: Props) {
+/** Marca de Sale a la Luz: un sol que asoma detrás de una carta. Sirve sobre cualquier fondo. */
+export default function Logo({ tamano = 124, className = '' }: Props) {
   return (
-    <svg
-      width={tamano}
-      height={tamano}
-      viewBox="40 40 432 432"
-      role="img"
-      aria-label="Sale a la Luz"
-      className={className}
-    >
+    <svg width={tamano} height={tamano} viewBox="0 0 512 512" role="img" aria-label="Sale a la Luz" className={className}>
       <defs>
         <linearGradient id="logo-sol" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="#FFE08A" />
-          <stop offset="1" stopColor="#FF7A59" />
+          <stop offset="0" stopColor="#F7C45A" />
+          <stop offset="1" stopColor="#F08A6B" />
         </linearGradient>
+        <radialGradient id="logo-glow" cx="0.5" cy="0.5" r="0.5">
+          <stop offset="0" stopColor="#F7C45A" stopOpacity="0.5" />
+          <stop offset="1" stopColor="#F7C45A" stopOpacity="0" />
+        </radialGradient>
       </defs>
-      <g stroke="#FFD66B" strokeWidth="16" strokeLinecap="round">
-        <line x1="256" y1="96" x2="256" y2="48" />
-        <line x1="158" y1="136" x2="124" y2="102" />
-        <line x1="354" y1="136" x2="388" y2="102" />
-        <line x1="118" y1="232" x2="70" y2="232" />
-        <line x1="394" y1="232" x2="442" y2="232" />
-      </g>
-      <circle cx="256" cy="240" r="104" fill="url(#logo-sol)" />
-      <rect x="132" y="240" width="248" height="196" rx="30" fill="#1C1A24" stroke="#FFD66B" strokeWidth="8" />
-      <rect x="176" y="300" width="160" height="16" rx="8" fill="#F5F0E8" />
-      <rect x="176" y="340" width="104" height="16" rx="8" fill="#F5F0E8" opacity="0.55" />
+      <circle cx="256" cy="236" r="230" fill="url(#logo-glow)" />
+      <circle cx="256" cy="240" r="118" fill="url(#logo-sol)" />
+      <rect x="136" y="240" width="240" height="210" rx="26" fill="#2A1F18" />
+      <rect x="150" y="254" width="212" height="182" rx="16" fill="none" stroke="#F4ECE1" strokeOpacity="0.18" strokeWidth="2" />
+      <rect x="176" y="302" width="140" height="16" rx="8" fill="#F8F2EA" />
+      <rect x="176" y="336" width="96" height="16" rx="8" fill="#F8F2EA" fillOpacity="0.7" />
     </svg>
   );
 }

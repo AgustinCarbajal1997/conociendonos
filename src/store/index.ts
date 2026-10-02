@@ -11,6 +11,7 @@ import type { BloqueNocheId, Contexto, EstadoPartida, Jugador, ModoSuelto } from
 export type Pantalla = 'inicio' | 'jugadores' | 'configuracion' | 'carta' | 'resumen' | 'como-se-juega';
 export type TipoPartida = 'noche' | 'suelto';
 export type TamanoLetra = 0 | 1 | 2;
+export type Tema = 'claro' | 'oscuro';
 
 export interface Config {
   ordenBloques: BloqueNocheId[];
@@ -23,6 +24,7 @@ export interface Config {
   pasar: boolean;
   sinRepetir: boolean;
   tamanoLetra: TamanoLetra;
+  tema: Tema;
 }
 
 export const CONFIG_DEFAULT: Config = {
@@ -35,6 +37,7 @@ export const CONFIG_DEFAULT: Config = {
   pasar: true,
   sinRepetir: true,
   tamanoLetra: 1,
+  tema: 'claro',
 };
 
 interface Estado {
@@ -56,6 +59,7 @@ interface Acciones {
   marcarTransicionVista: (bloque: number) => void;
   irA: (p: Pantalla) => void;
   elegirTipo: (t: TipoPartida) => void;
+  setTipoPartida: (t: TipoPartida) => void;
   agregarJugador: (nombre: string) => void;
   renombrarJugador: (id: string, nombre: string) => void;
   quitarJugador: (id: string) => void;
@@ -106,6 +110,7 @@ export const useStore = create<Store>()(
       marcarTransicionVista: (transicionVista) => set({ transicionVista }),
       irA: (pantalla) => set({ pantalla }),
       elegirTipo: (tipoPartida) => set({ tipoPartida, pantalla: 'jugadores' }),
+      setTipoPartida: (tipoPartida) => set({ tipoPartida }),
 
       agregarJugador: (nombre) => {
         const limpio = nombre.trim();

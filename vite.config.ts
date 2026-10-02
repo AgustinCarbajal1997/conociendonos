@@ -19,8 +19,8 @@ export default defineConfig({
         short_name: 'Sale a la Luz',
         description: 'Cartas de conversación para una noche con amigos, parejas y familia.',
         lang: 'es',
-        theme_color: '#121212',
-        background_color: '#121212',
+        theme_color: '#F8F2EA',
+        background_color: '#F8F2EA',
         display: 'standalone',
         orientation: 'portrait',
         start_url: base,
@@ -34,6 +34,13 @@ export default defineConfig({
       workbox: {
         globPatterns: ['**/*.{js,css,html,svg,png,json,woff2}'],
         navigateFallback: `${base}index.html`,
+        runtimeCaching: [
+          {
+            urlPattern: /^https:\/\/fonts\.(googleapis|gstatic)\.com\/.*/i,
+            handler: 'CacheFirst',
+            options: { cacheName: 'fuentes', expiration: { maxEntries: 20, maxAgeSeconds: 60 * 60 * 24 * 365 }, cacheableResponse: { statuses: [0, 200] } },
+          },
+        ],
       },
     }),
   ],

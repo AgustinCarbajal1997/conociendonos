@@ -7,15 +7,28 @@ import PantallaCarta from './screens/PantallaCarta';
 import Resumen from './screens/Resumen';
 import ComoSeJuega from './screens/ComoSeJuega';
 
-const ESCALAS = ['1', '1.15', '1.3'];
+/** Tamaño de la pregunta en la carta: chico, medio, grande. */
+const TAMANOS = [
+  { size: '28px', lh: '1.16' },
+  { size: '32px', lh: '1.14' },
+  { size: '36px', lh: '1.14' },
+];
 
 export default function App() {
   const pantalla = useStore((s) => s.pantalla);
   const tamanoLetra = useStore((s) => s.config.tamanoLetra);
+  const tema = useStore((s) => s.config.tema);
 
   useEffect(() => {
-    document.documentElement.style.setProperty('--escala-letra', ESCALAS[tamanoLetra] ?? '1');
+    const t = TAMANOS[tamanoLetra] ?? TAMANOS[1];
+    document.documentElement.style.setProperty('--q-size', t.size);
+    document.documentElement.style.setProperty('--q-lh', t.lh);
   }, [tamanoLetra]);
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = tema;
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', tema === 'oscuro' ? '#130E0B' : '#F8F2EA');
+  }, [tema]);
 
   switch (pantalla) {
     case 'inicio': return <Inicio />;

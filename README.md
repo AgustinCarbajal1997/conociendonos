@@ -63,6 +63,10 @@ src/components/         Carta, Transicion, SelectorCategoria, SelectorModo, List
 src/hooks/              useWakeLock, useMantenerApretado
 ```
 
+## Diseño
+
+El sistema visual sale del canvas de Claude Design "Sale a la Luz" (opción A editorial): tipografías Newsreader (display) e Instrument Sans (UI) vía Google Fonts, tokens en [`src/index.css`](src/index.css) como variables CSS que cambian con `data-theme` en `<html>`. El **modo claro (pastel cálido) es el predeterminado**; el oscuro se elige en Configuración → Tema y queda guardado en el celular. Cada mazo define sus colores de carta, texto, nota, chip y pila con `[data-mazo]`, en ambos temas. Las fuentes se cachean en runtime para que la PWA las tenga offline después de la primera carga; si no están, cae a Georgia y la sans del sistema.
+
 ## Decisiones que no estaban en el brief
 
 - **La partida también se persiste** (no solo jugadores, historial y favoritas): si el celular recarga la página a mitad de la noche, se vuelve a la misma carta. "Seguir la noche en curso" aparece en Inicio cuando hay una partida abierta.
@@ -73,10 +77,10 @@ src/hooks/              useWakeLock, useMantenerApretado
 - **Especiales**: no se intercalan en modo "por categoría" (la cola no es una secuencia). "Elegí vos" abre un selector de categorías del mazo que viene; si la categoría elegida no está en la cola, trae una carta nueva de esa categoría no vista en la noche. Nunca salen dos especiales iguales seguidas ni una especial como última carta.
 - **"Todos responden"** no consume turno: la rotación sigue donde estaba en la carta siguiente.
 - **Contador** "Bloque 2 · 4/10" cuenta solo cartas regulares; las especiales no suman.
-- **Colores de mazo** ajustados para contraste AA (≥ 4.5:1) con el texto que se elige automáticamente por luminancia (`src/lib/color.ts`, con test). Amigos usa fondo claro con texto oscuro; los demás, fondo oscuro con texto claro.
+- **Colores de mazo** vienen del diseño con contraste AA verificado por el diseñador; el campo `color` del JSON guarda el color de carta del tema oscuro y `src/lib/color.ts` (con test) lo valida contra texto claro u oscuro.
 - **Transición de nivel** en modo progresivo: "Para empezar" → "Vamos un poco más profundo" → "Lo que no se dice".
 - **Reordenar bloques**: drag con pointer events (funciona en touch) y botones ↑↓ como alternativa accesible.
-- **Tamaño de letra**: la pregunta va en 28 / 32 / 36 px según el paso elegido.
+- **Tamaño de letra**: la pregunta va en 28 / 32 / 36 px según el paso elegido (default: 32).
 - Sin librería de routing: las pantallas se manejan con un campo `pantalla` en el store.
 - Íconos PWA generados desde `public/icono.svg` con `qlmanage` (macOS); si cambiás el SVG, regenerá los PNG de 192, 512 y 180 px.
 

@@ -1,66 +1,172 @@
 @import "tailwindcss";
 
-@theme {
-  --color-fondo: #121212;
-  --color-superficie: #1e1e1e;
-  --color-superficie-2: #2a2a2a;
-  --color-borde: #333333;
-  --color-texto: #f2f2f2;
-  --color-texto-suave: #a8a8a8;
-  --color-acento: #e9c46a;
-  --color-acento-texto: #141414;
-  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+/* Tokens del diseño "Sale a la Luz". Los utilitarios de Tailwind apuntan a variables
+   que cambian con [data-theme], así el modo claro (default) y el oscuro usan las mismas clases. */
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-text: var(--text);
+  --color-muted: var(--muted);
+  --color-muted-2: var(--muted-2);
+  --color-line: var(--line);
+  --color-amber: var(--amber);
+  --color-on-amber: var(--on-amber);
+  --color-amber-text: var(--amber-text);
+  --color-coral-text: var(--coral-text);
+  --color-coral-bg: var(--coral-bg);
+  --font-display: 'Newsreader', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Instrument Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --ease-soft: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-flip: cubic-bezier(0.65, 0, 0.35, 1);
 }
 
-:root {
-  --escala-letra: 1;
-  color-scheme: dark;
+:root,
+:root[data-theme='claro'] {
+  color-scheme: light;
+  --bg: #f8f2ea;
+  --bg-bottom: #f3ebe0;
+  --bg-app: radial-gradient(130% 55% at 50% -8%, #fbe7d2 0%, #f8f2ea 50%, #f3ebe0 100%);
+  --bg-inicio: radial-gradient(120% 60% at 50% 18%, #fbe7d2 0%, #f8f2ea 50%, #f3ebe0 100%);
+  --surface: #fffbf6;
+  --surface-2: #efe6da;
+  --text: #2a1f18;
+  --muted: #6e5f52;
+  --muted-2: #9a8b7c;
+  --line: rgb(42 31 24 / 0.1);
+  --scrim: rgb(42 31 24 / 0.45);
+  --amber: #e9a83a;
+  --amber-hi: #f7c45a;
+  --on-amber: #1a1208;
+  --amber-text: #8a5a0e;
+  --coral: #f08a6b;
+  --coral-text: #b04a33;
+  --coral-bg: #fbe1d8;
+  --toast-bg: #2a1f18;
+  --toast-text: #f4ece1;
+  --btn2-bg: #fffbf6;
+  --btn2-shadow: inset 0 0 0 1px rgb(42 31 24 / 0.1), 0 6px 18px -12px rgb(42 31 24 / 0.35);
+  --btn1-shadow: 0 10px 24px -14px rgb(138 90 14 / 0.6);
+  --shadow-card: inset 0 1px 0 rgb(255 255 255 / 0.7), 0 18px 40px -24px rgb(42 31 24 / 0.45);
+  --shadow-sheet: 0 -20px 60px -20px rgb(42 31 24 / 0.35);
+  --row-ring: inset 0 0 0 1px rgb(42 31 24 / 0.08);
+  --gradient-especial: linear-gradient(165deg, #f7c45a 0%, #f08a6b 48%, #d98bb0 100%);
+  --glow-especial: rgb(247 196 90 / 0.45);
+  --q-size: 32px;
+  --q-lh: 1.14;
 }
+
+:root[data-theme='oscuro'] {
+  color-scheme: dark;
+  --bg: #130e0b;
+  --bg-bottom: #130e0b;
+  --bg-app: radial-gradient(130% 55% at 50% -8%, #3b2410 0%, #1e1510 45%, #130e0b 100%);
+  --bg-inicio: radial-gradient(120% 60% at 50% 18%, #3b2410 0%, #1e1510 45%, #130e0b 100%);
+  --surface: #1f1813;
+  --surface-2: #2a2119;
+  --text: #f4ece1;
+  --muted: #a89b8c;
+  --muted-2: #8e8173;
+  --line: rgb(244 236 225 / 0.14);
+  --scrim: rgb(19 14 11 / 0.55);
+  --amber: #f2b64a;
+  --amber-hi: #f7c45a;
+  --on-amber: #1a1208;
+  --amber-text: #f2b64a;
+  --coral: #e8775a;
+  --coral-text: #f08a6b;
+  --coral-bg: rgb(240 138 107 / 0.14);
+  --toast-bg: #f4ece1;
+  --toast-text: #1a1208;
+  --btn2-bg: rgb(244 236 225 / 0.04);
+  --btn2-shadow: inset 0 0 0 1px rgb(244 236 225 / 0.14);
+  --btn1-shadow: none;
+  --shadow-card: inset 0 1px 0 rgb(255 255 255 / 0.25), 0 18px 40px -24px rgb(0 0 0 / 0.9);
+  --shadow-sheet: 0 -20px 60px -20px rgb(0 0 0 / 0.9), inset 0 1px 0 rgb(255 255 255 / 0.06);
+  --row-ring: none;
+  --gradient-especial: linear-gradient(165deg, #f7c45a 0%, #e8775a 48%, #5a2440 100%);
+  --glow-especial: rgb(242 182 74 / 0.35);
+}
+
+/* Colores por mazo: carta, texto, nota, chip (sobre el fondo de la app), pila (cartas detrás) y borde interior. */
+[data-mazo='desconocidos'] { --m-card: #bfe3dd; --m-text: #143e3d; --m-note: #2f5f5b; --m-chip: #1e5a58; --m-chip-bg: rgb(30 90 88 / 0.12); --m-stack-1: #9fcfc7; --m-stack-2: #86bdb4; --m-line: rgb(20 62 61 / 0.16); }
+[data-mazo='amigos'] { --m-card: #f6dfa6; --m-text: #4a3610; --m-note: #6b5020; --m-chip: #8a5a0e; --m-chip-bg: rgb(138 90 14 / 0.12); --m-stack-1: #e8c97e; --m-stack-2: #d9b262; --m-line: rgb(74 54 16 / 0.18); }
+[data-mazo='pareja'] { --m-card: #f7cfc0; --m-text: #6e2d1f; --m-note: #7e3a2a; --m-chip: #b04a33; --m-chip-bg: #fbe1d8; --m-stack-1: #ecb5a2; --m-stack-2: #de9e88; --m-line: rgb(110 45 31 / 0.18); }
+[data-mazo='familia'] { --m-card: #e6cbda; --m-text: #4a1c35; --m-note: #6e3556; --m-chip: #7a3358; --m-chip-bg: rgb(122 51 88 / 0.12); --m-stack-1: #d4b0c4; --m-stack-2: #c398ae; --m-line: rgb(74 28 53 / 0.18); }
+[data-mazo='especial'] { --m-card: var(--surface); --m-text: var(--text); --m-note: var(--muted); --m-chip: var(--amber-text); --m-chip-bg: rgb(138 90 14 / 0.12); --m-stack-1: var(--surface-2); --m-stack-2: var(--surface-2); --m-line: var(--line); }
+
+:root[data-theme='oscuro'] [data-mazo='desconocidos'] { --m-card: #1e5a58; --m-text: #f1f4ef; --m-note: #cfe3df; --m-chip: #6fc3b8; --m-chip-bg: rgb(111 195 184 / 0.14); --m-stack-1: #194b49; --m-stack-2: #154140; --m-line: rgb(241 244 239 / 0.18); }
+:root[data-theme='oscuro'] [data-mazo='amigos'] { --m-card: #c9952e; --m-text: #1e1507; --m-note: #3a2a0b; --m-chip: #e9b454; --m-chip-bg: rgb(233 180 84 / 0.14); --m-stack-1: #a97d26; --m-stack-2: #8f6a1e; --m-line: rgb(30 21 7 / 0.22); }
+:root[data-theme='oscuro'] [data-mazo='pareja'] { --m-card: #a8452f; --m-text: #fbefe9; --m-note: #fcebe4; --m-chip: #f08a6b; --m-chip-bg: rgb(240 138 107 / 0.14); --m-stack-1: #8d3a27; --m-stack-2: #74301f; --m-line: rgb(251 239 233 / 0.2); }
+:root[data-theme='oscuro'] [data-mazo='familia'] { --m-card: #5a2440; --m-text: #f6eaf0; --m-note: #e3c6d4; --m-chip: #d98bb0; --m-chip-bg: rgb(217 139 176 / 0.14); --m-stack-1: #4d1e37; --m-stack-2: #41192e; --m-line: rgb(246 234 240 / 0.18); }
+:root[data-theme='oscuro'] [data-mazo='especial'] { --m-chip: #f2b64a; --m-chip-bg: rgb(242 182 74 / 0.14); --m-note: #c9b8a3; }
 
 html, body, #root { height: 100%; }
 
 body {
   margin: 0;
-  background: var(--color-fondo);
-  color: var(--color-texto);
+  background: var(--bg);
+  color: var(--text);
   font-family: var(--font-sans);
   overscroll-behavior: none;
   -webkit-tap-highlight-color: transparent;
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
-/* Pregunta: 28 / 32 / 36 px según el tamaño de letra elegido. */
+.pantalla {
+  min-height: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: max(env(safe-area-inset-top), 18px) 20px max(env(safe-area-inset-bottom), 22px);
+  background: var(--bg-app);
+  overflow: hidden;
+}
+
 .pregunta {
-  font-size: calc(28px * var(--escala-letra));
-  line-height: 1.3;
-  letter-spacing: -0.01em;
-  text-wrap: balance;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: var(--q-size);
+  line-height: var(--q-lh);
+  letter-spacing: -0.012em;
+  text-wrap: pretty;
 }
 
-.safe-top { padding-top: env(safe-area-inset-top); }
-.safe-bottom { padding-bottom: max(env(safe-area-inset-bottom), 16px); }
+.etiqueta {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.display { font-family: var(--font-display); font-weight: 500; letter-spacing: -0.02em; }
+
+.tabular { font-variant-numeric: tabular-nums; }
+
+/* Pistas de gesto en el pie de la carta */
+.pista { font-size: 12px; letter-spacing: 0.04em; display: flex; align-items: center; gap: 6px; }
 
 @keyframes voltear {
   from { transform: perspective(1200px) rotateY(-90deg); opacity: 0.3; }
   to { transform: perspective(1200px) rotateY(0deg); opacity: 1; }
 }
-.voltear { animation: voltear 250ms ease-out both; transform-origin: center; backface-visibility: hidden; }
+.voltear { animation: voltear 250ms var(--ease-flip) both; transform-origin: center; backface-visibility: hidden; }
 
-@keyframes subir {
-  from { transform: translateY(100%); }
-  to { transform: translateY(0); }
-}
-.subir { animation: subir 250ms ease-out both; }
+@keyframes subir { from { transform: translateY(100%); } to { transform: translateY(0); } }
+.subir { animation: subir 320ms var(--ease-soft) both; }
 
-@keyframes aparecer {
-  from { opacity: 0; transform: scale(0.98); }
-  to { opacity: 1; transform: scale(1); }
-}
+@keyframes aparecer { from { opacity: 0; } to { opacity: 1; } }
 .aparecer { animation: aparecer 200ms ease-out both; }
 
+@keyframes toast { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+.toast { animation: toast 180ms var(--ease-soft) both; }
+
 @media (prefers-reduced-motion: reduce) {
-  .voltear, .subir, .aparecer { animation: none; }
+  .voltear, .subir, .aparecer, .toast { animation: none; }
 }
 
-select, input { font: inherit; }
-button { touch-action: manipulation; }
+select, input, button { font: inherit; }
+button { touch-action: manipulation; cursor: pointer; }
+button:active:not(:disabled) { transform: scale(0.98); filter: brightness(0.94); }
+button:disabled { cursor: default; }

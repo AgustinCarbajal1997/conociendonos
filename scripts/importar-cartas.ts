@@ -28,7 +28,7 @@ const MAZOS: DefMazo[] = [
   {
     id: 'desconocidos', nombre: 'Desconocidos', prefijo: 'de',
     descripcion: 'Para romper el hielo cuando no todos se conocen',
-    color: '#1D6F65', audiencia: 'todos',
+    color: '#1E5A58', audiencia: 'todos',
     categorias: [
       { id: 'rompehielo', nombre: 'Rompehielo', nivel: 1 },
       { id: 'primeras-impresiones', nombre: 'Primeras impresiones', nivel: 1 },
@@ -39,7 +39,7 @@ const MAZOS: DefMazo[] = [
   {
     id: 'amigos', nombre: 'Amigos', prefijo: 'am',
     descripcion: 'Para reírse, debatir y decir lo que no se dice en el grupo',
-    color: '#E9C46A', audiencia: 'todos',
+    color: '#C9952E', audiencia: 'todos',
     categorias: [
       { id: 'rompehielo', nombre: 'Rompehielo', nivel: 1 },
       { id: 'descomprimir', nombre: 'Descomprimir', nivel: 1 },
@@ -50,7 +50,7 @@ const MAZOS: DefMazo[] = [
   {
     id: 'pareja', nombre: 'Pareja', prefijo: 'pa',
     descripcion: 'Para que cada pareja se escuche frente a la mesa',
-    color: '#B9432A', audiencia: 'pareja',
+    color: '#A8452F', audiencia: 'pareja',
     categorias: [
       { id: 'rompehielo', nombre: 'Rompehielo', nivel: 1 },
       { id: 'historia', nombre: 'Nuestra historia', nivel: 2 },
@@ -61,7 +61,7 @@ const MAZOS: DefMazo[] = [
   {
     id: 'familia', nombre: 'Familia', prefijo: 'fa',
     descripcion: 'Para hablar entre generaciones de lo que se vive en casa',
-    color: '#6B4FA0', audiencia: 'familia',
+    color: '#5A2440', audiencia: 'familia',
     categorias: [
       { id: 'rompehielo', nombre: 'Rompehielo', nivel: 1 },
       { id: 'raices', nombre: 'Raíces', nivel: 2 },

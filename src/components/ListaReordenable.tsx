@@ -1,7 +1,8 @@
 import { useRef, useState } from 'react';
-import type { PointerEvent } from 'react';
+import type { PointerEvent, ReactNode } from 'react';
+import { Agarre, ChevronAbajo } from './Icono';
 
-export interface ItemReordenable { id: string; etiqueta: string; detalle?: string; inactivo?: boolean }
+export interface ItemReordenable { id: string; etiqueta: string; detalle?: string; inactivo?: boolean; indicador?: ReactNode }
 
 interface Props { items: ItemReordenable[]; onReordenar: (ids: string[]) => void }
 
@@ -12,11 +13,10 @@ function mover<T>(arr: T[], de: number, a: number): T[] {
   return copia;
 }
 
-/** Lista con drag por pointer events (funciona en touch) y botones ↑↓ como alternativa accesible. */
+/** Filas arrastrables por pointer events (funciona en touch), con flechas como alternativa accesible. */
 export default function ListaReordenable({ items, onReordenar }: Props) {
   const [arrastrando, setArrastrando] = useState<string | null>(null);
   const filas = useRef(new Map<string, HTMLLIElement>());
-
   const ids = items.map((i) => i.id);
 
   const alMover = (e: PointerEvent) => {
@@ -32,30 +32,39 @@ export default function ListaReordenable({ items, onReordenar }: Props) {
     });
     if (destino !== idx) onReordenar(mover(ids, idx, destino));
   };
+  const soltar = () => setArrastrando(null);
 
   return (
-    <ul className="flex flex-col gap-2" onPointerMove={alMover} onPointerUp={() => setArrastrando(null)} onPointerCancel={() => setArrastrando(null)}>
+    <ul className="m-0 flex list-none flex-col gap-2 p-0" onPointerMove={alMover} onPointerUp={soltar} onPointerCancel={soltar}>
       {items.map((item, i) => (
         <li
           key={item.id}
           ref={(el) => { if (el) filas.current.set(item.id, el); else filas.current.delete(item.id); }}
-          className={`flex items-center gap-2 rounded-xl border px-2 py-2 ${arrastrando === item.id ? 'border-acento bg-superficie-2' : 'border-borde bg-superficie'} ${item.inactivo ? 'opacity-50' : ''}`}
+          className={`flex h-[60px] items-center gap-2 rounded-2xl bg-surface-2 pl-1 pr-3 transition ${item.inactivo ? 'opacity-50' : ''}`}
+          style={arrastrando === item.id ? { boxShadow: '0 0 0 2px var(--amber)' } : undefined}
         >
           <button
             type="button"
             aria-label={`Arrastrar ${item.etiqueta}`}
-            className="min-h-10 min-w-10 cursor-grab touch-none text-xl text-texto-suave"
+            className="flex h-11 w-9 cursor-grab touch-none items-center justify-center text-muted-2"
             onPointerDown={(e) => { e.currentTarget.setPointerCapture(e.pointerId); setArrastrando(item.id); }}
-            onPointerUp={() => setArrastrando(null)}
+            onPointerUp={soltar}
           >
-            ⋮⋮
+            <Agarre tamano={20} />
           </button>
-          <span className="flex-1">
-            <span className="block">{i + 1}. {item.etiqueta}</span>
-            {item.detalle && <span className="block text-sm text-texto-suave">{item.detalle}</span>}
+          <span className="flex min-w-0 flex-1 flex-col gap-0.5">
+            <span className="truncate text-base font-semibold">{item.etiqueta}</span>
+            {item.detalle && <span className="truncate text-[13px] text-muted">{item.detalle}</span>}
           </span>
-          <button type="button" aria-label={`Subir ${item.etiqueta}`} disabled={i === 0} className="min-h-10 min-w-10 text-lg disabled:opacity-30" onClick={() => onReordenar(mover(ids, i, i - 1))}>↑</button>
-          <button type="button" aria-label={`Bajar ${item.etiqueta}`} disabled={i === items.length - 1} className="min-h-10 min-w-10 text-lg disabled:opacity-30" onClick={() => onReordenar(mover(ids, i, i + 1))}>↓</button>
+          {item.indicador}
+          <span className="ml-1 flex flex-col">
+            <button type="button" aria-label={`Subir ${item.etiqueta}`} disabled={i === 0} className="flex h-6 w-8 items-center justify-center text-muted-2 disabled:opacity-30" onClick={() => onReordenar(mover(ids, i, i - 1))}>
+              <ChevronAbajo tamano={16} grosor={2} style={{ transform: 'rotate(180deg)' }} />
+            </button>
+            <button type="button" aria-label={`Bajar ${item.etiqueta}`} disabled={i === items.length - 1} className="flex h-6 w-8 items-center justify-center text-muted-2 disabled:opacity-30" onClick={() => onReordenar(mover(ids, i, i + 1))}>
+              <ChevronAbajo tamano={16} grosor={2} />
+            </button>
+          </span>
         </li>
       ))}
     </ul>
