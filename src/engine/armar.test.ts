@@ -16,22 +16,22 @@ const pepe: Jugador = { id: 'p', nombre: 'Pepe', familia: false };
 const config = { ordenBloques: ORDEN_NOCHE_DEFAULT, cartasPorBloque: 10 };
 
 describe('armarNoche', () => {
-  it('arma los 5 bloques en orden cuando hay parejas y familia', () => {
+  it('arma los 6 bloques en orden cuando hay parejas y familia', () => {
     const { cola, bloques } = armarNoche(MAZOS, [ana, juan, lu, pepe], config, new Set(), rng());
-    expect(bloques.map((b) => b.id)).toEqual(['desconocidos', 'amigos', 'parejas', 'familia', 'profundidad']);
-    expect(cola).toHaveLength(50);
-    for (let b = 0; b < 5; b++) expect(cola.filter((it) => it.bloque === b)).toHaveLength(10);
+    expect(bloques.map((b) => b.id)).toEqual(['desconocidos', 'amigos', 'parejas', 'familia', 'profundo', 'profundidad']);
+    expect(cola).toHaveLength(60);
+    for (let b = 0; b < 6; b++) expect(cola.filter((it) => it.bloque === b)).toHaveLength(10);
   });
 
   it('omite el bloque de parejas si no hay parejas cargadas', () => {
     const { bloques, cola } = armarNoche(MAZOS, [lu, pepe], config, new Set(), rng());
-    expect(bloques.map((b) => b.id)).toEqual(['desconocidos', 'amigos', 'familia', 'profundidad']);
+    expect(bloques.map((b) => b.id)).toEqual(['desconocidos', 'amigos', 'familia', 'profundo', 'profundidad']);
     expect(cola.some((it) => it.mazoId === 'pareja')).toBe(false);
   });
 
   it('omite el bloque de familia si nadie es familia', () => {
     const { bloques, cola } = armarNoche(MAZOS, [ana, juan, pepe], config, new Set(), rng());
-    expect(bloques.map((b) => b.id)).toEqual(['desconocidos', 'amigos', 'parejas', 'profundidad']);
+    expect(bloques.map((b) => b.id)).toEqual(['desconocidos', 'amigos', 'parejas', 'profundo', 'profundidad']);
     expect(cola.some((it) => it.mazoId === 'familia')).toBe(false);
   });
 
@@ -47,10 +47,17 @@ describe('armarNoche', () => {
 
   it('dentro de un bloque el nivel es ascendente', () => {
     const { cola } = armarNoche(MAZOS, [ana, juan, lu], config, new Set(), rng());
-    for (let b = 0; b < 5; b++) {
+    for (let b = 0; b < 6; b++) {
       const niveles = cola.filter((it) => it.bloque === b).map((it) => it.nivel);
       expect(niveles).toEqual([...niveles].sort());
     }
+  });
+
+  it('el bloque Profundo tiene niveles 2 y 3 del mazo profundo', () => {
+    const { cola } = armarNoche(MAZOS, [ana, juan, lu], config, new Set(), rng());
+    const bloque = cola.filter((it) => it.bloque === 4);
+    expect(bloque.every((it) => it.mazoId === 'profundo' && it.nivel >= 2)).toBe(true);
+    expect(bloque.some((it) => it.nivel === 2) && bloque.some((it) => it.nivel === 3)).toBe(true);
   });
 
   it('el bloque de desconocidos solo tiene nivel 1 y el de amigos niveles 1 y 2', () => {
@@ -63,7 +70,7 @@ describe('armarNoche', () => {
 
   it('el bloque final es nivel 3 de varios mazos y no repite cartas', () => {
     const { cola } = armarNoche(MAZOS, [ana, juan, lu], config, new Set(), rng());
-    const final = cola.filter((it) => it.bloque === 4);
+    const final = cola.filter((it) => it.bloque === 5);
     expect(final.every((it) => it.nivel === 3)).toBe(true);
     expect(new Set(final.map((it) => it.mazoId)).size).toBeGreaterThan(1);
     expect(new Set(cola.map((it) => it.cartaId)).size).toBe(cola.length);
@@ -71,7 +78,7 @@ describe('armarNoche', () => {
 
   it('cartasPorBloque configurable', () => {
     const { cola } = armarNoche(MAZOS, [pepe], { ...config, cartasPorBloque: 4 }, new Set(), rng());
-    expect(cola).toHaveLength(12); // desconocidos + amigos + profundidad
+    expect(cola).toHaveLength(16); // desconocidos + amigos + profundo + profundidad
   });
 
   it('prefiere cartas no vistas', () => {

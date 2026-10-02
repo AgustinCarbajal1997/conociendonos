@@ -213,6 +213,15 @@ export const useStore = create<Store>()(
       merge: (persistido, actual) => {
         const p = (persistido ?? {}) as Partial<Estado>;
         const estado: Estado & Acciones = { ...actual, ...p, config: { ...CONFIG_DEFAULT, ...(p.config ?? {}) } };
+        // Bloques nuevos que no estaban cuando se guardó la config: van antes del cierre.
+        const faltan = ORDEN_NOCHE_DEFAULT.filter((b) => !estado.config.ordenBloques.includes(b));
+        if (faltan.length) {
+          const orden = estado.config.ordenBloques.filter((b) => ORDEN_NOCHE_DEFAULT.includes(b));
+          const cierre = orden.indexOf('profundidad');
+          orden.splice(cierre < 0 ? orden.length : cierre, 0, ...faltan.filter((b) => b !== 'profundidad'));
+          if (faltan.includes('profundidad')) orden.push('profundidad');
+          estado.config.ordenBloques = orden;
+        }
         // Versiones anteriores guardaban un solo mazoId.
         const viejo = (p.config as { mazoId?: string } | undefined)?.mazoId;
         if (!Array.isArray(estado.config.mazosIds) || estado.config.mazosIds.length === 0) estado.config.mazosIds = [viejo && MAZOS[viejo] ? viejo : 'amigos'];

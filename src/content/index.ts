@@ -3,6 +3,7 @@ import desconocidos from './desconocidos.json';
 import amigos from './amigos.json';
 import pareja from './pareja.json';
 import familia from './familia.json';
+import profundo from './profundo.json';
 import especialesJson from './especiales.json';
 
 export const MAZOS: Record<string, Mazo> = {
@@ -10,9 +11,10 @@ export const MAZOS: Record<string, Mazo> = {
   amigos: amigos as Mazo,
   pareja: pareja as Mazo,
   familia: familia as Mazo,
+  profundo: profundo as Mazo,
 };
 
-export const LISTA_MAZOS: Mazo[] = [MAZOS.desconocidos, MAZOS.amigos, MAZOS.pareja, MAZOS.familia];
+export const LISTA_MAZOS: Mazo[] = [MAZOS.desconocidos, MAZOS.amigos, MAZOS.pareja, MAZOS.familia, MAZOS.profundo];
 export const ESPECIALES: Especial[] = especialesJson as Especial[];
 
 export function buscarCarta(id: string): { mazo: Mazo; carta: Mazo['cartas'][number] } | null {

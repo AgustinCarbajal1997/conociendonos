@@ -2,8 +2,8 @@
 
 Juego de cartas de conversación (estilo *En Palabras*) para una noche con amigos, parejas y familia alrededor de un solo celular que pasa de mano. No hay puntos ni ganadores: la web muestra una pregunta por pantalla y dice a quién le toca responder.
 
-- 160 cartas propias en 4 mazos (Desconocidos, Amigos, Pareja, Familia) × 4 categorías, más 4 cartas especiales.
-- Modo **Noche**: arma sola la secuencia rompehielo → amigos → parejas → familia → profundidad.
+- 200 cartas propias en 5 mazos (Desconocidos, Amigos, Pareja, Familia, Profundo) × 4 categorías, más 4 cartas especiales.
+- Modo **Noche**: arma sola la secuencia rompehielo → amigos → parejas → familia → lo que importa (Profundo) → profundidad.
 - Mazo suelto en modo progresivo, mezclado o por categoría.
 - PWA: funciona sin señal después de la primera carga. Sin cuenta, sin backend.
 - Publicada en **https://agustincarbajal1997.github.io/conociendonos/** (se redeploya sola con cada push a `main`).
@@ -31,7 +31,7 @@ pnpm importar   # genera src/content/{desconocidos,amigos,pareja,familia,especia
 pnpm validar    # ids únicos, categorías válidas, máximo 140 caracteres
 ```
 
-Los ids se asignan por orden dentro de cada mazo (`am-001`, `pa-031`, etc.). Si reordenás filas, cambian los ids y el historial "sin repetir" de los celulares deja de coincidir con esas cartas; no es grave, solo se vuelven a mostrar.
+Los ids se asignan por orden dentro de cada mazo (`am-001`, `pa-031`, `pr-012`, etc.). Si reordenás filas, cambian los ids y el historial "sin repetir" de los celulares deja de coincidir con esas cartas; no es grave, solo se vuelven a mostrar.
 
 ## Desplegar
 

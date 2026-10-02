@@ -1,0 +1,231 @@
+{
+  "id": "profundo",
+  "nombre": "Profundo",
+  "descripcion": "Amor, sueños, logros y miedos: lo que importa de verdad",
+  "color": "#2F4A6E",
+  "audiencia": "todos",
+  "categorias": [
+    {
+      "id": "suenos",
+      "nombre": "Sueños",
+      "nivel": 2
+    },
+    {
+      "id": "logros",
+      "nombre": "Logros",
+      "nivel": 2
+    },
+    {
+      "id": "amor",
+      "nombre": "Amor",
+      "nivel": 3
+    },
+    {
+      "id": "miedos",
+      "nombre": "Miedos",
+      "nivel": 3
+    }
+  ],
+  "cartas": [
+    {
+      "id": "pr-001",
+      "cat": "suenos",
+      "texto": "¿Qué sueño tenías de chico que todavía no soltaste?"
+    },
+    {
+      "id": "pr-002",
+      "cat": "suenos",
+      "texto": "¿Qué harías si supieras que no puede salir mal?"
+    },
+    {
+      "id": "pr-003",
+      "cat": "suenos",
+      "texto": "¿Qué lugar del mundo querés conocer antes de que pase mucho tiempo, y con quién?"
+    },
+    {
+      "id": "pr-004",
+      "cat": "suenos",
+      "texto": "¿Qué te gustaría aprender aunque no sirva para nada?"
+    },
+    {
+      "id": "pr-005",
+      "cat": "suenos",
+      "texto": "¿Cómo sería un día perfecto tuyo dentro de diez años?"
+    },
+    {
+      "id": "pr-006",
+      "cat": "suenos",
+      "texto": "¿Qué sueño dejaste de contar porque te daba vergüenza?"
+    },
+    {
+      "id": "pr-007",
+      "cat": "suenos",
+      "texto": "¿Qué cosa chica podrías hacer mañana para acercarte a lo que querés?"
+    },
+    {
+      "id": "pr-008",
+      "cat": "suenos",
+      "texto": "¿Qué te gustaría que dijeran de vos cuando no estás en la mesa?"
+    },
+    {
+      "id": "pr-009",
+      "cat": "suenos",
+      "texto": "Si pudieras dedicarte a otra cosa durante un año, ¿qué elegirías?"
+    },
+    {
+      "id": "pr-010",
+      "cat": "suenos",
+      "texto": "¿Qué sueño compartís con alguien de esta mesa?"
+    },
+    {
+      "id": "pr-011",
+      "cat": "logros",
+      "texto": "¿De qué logro estás más orgulloso y casi nadie sabe?"
+    },
+    {
+      "id": "pr-012",
+      "cat": "logros",
+      "texto": "¿Qué te costó mucho más de lo que parece desde afuera?"
+    },
+    {
+      "id": "pr-013",
+      "cat": "logros",
+      "texto": "¿En qué momento sentiste \"lo logré\", aunque fuera algo chico?"
+    },
+    {
+      "id": "pr-014",
+      "cat": "logros",
+      "texto": "¿Quién te ayudó a llegar a donde estás y nunca se lo agradeciste del todo?"
+    },
+    {
+      "id": "pr-015",
+      "cat": "logros",
+      "texto": "¿Qué fracaso terminó siendo lo mejor que te pasó?"
+    },
+    {
+      "id": "pr-016",
+      "cat": "logros",
+      "texto": "¿Qué hábito te cambió la vida más de lo que esperabas?"
+    },
+    {
+      "id": "pr-017",
+      "cat": "logros",
+      "texto": "¿Qué logro de alguien de esta mesa admirás?"
+    },
+    {
+      "id": "pr-018",
+      "cat": "logros",
+      "texto": "¿Qué te gustaría lograr este año y qué te frena?"
+    },
+    {
+      "id": "pr-019",
+      "cat": "logros",
+      "texto": "¿Qué cosa de tu vida de hoy sorprendería más a tu versión de hace diez años?"
+    },
+    {
+      "id": "pr-020",
+      "cat": "logros",
+      "texto": "¿Qué celebraste poco y merecía más fiesta?"
+    },
+    {
+      "id": "pr-021",
+      "cat": "amor",
+      "texto": "¿Cuándo te sentiste más querido en tu vida?"
+    },
+    {
+      "id": "pr-022",
+      "cat": "amor",
+      "texto": "¿Qué aprendiste del amor que no sabías a los veinte?"
+    },
+    {
+      "id": "pr-023",
+      "cat": "amor",
+      "texto": "¿A quién le dirías \"te quiero\" más seguido si no te diera pudor?"
+    },
+    {
+      "id": "pr-024",
+      "cat": "amor",
+      "texto": "¿Qué gesto chico te hace sentir amado?"
+    },
+    {
+      "id": "pr-025",
+      "cat": "amor",
+      "texto": "¿Qué amor, de pareja o no, te cambió la forma de ver a la gente?"
+    },
+    {
+      "id": "pr-026",
+      "cat": "amor",
+      "texto": "¿Qué te cuesta más: dar amor o recibirlo?"
+    },
+    {
+      "id": "pr-027",
+      "cat": "amor",
+      "texto": "¿Qué te enseñó un desamor que hoy agradecés?"
+    },
+    {
+      "id": "pr-028",
+      "cat": "amor",
+      "texto": "¿Cómo demostrás cariño cuando no te salen las palabras?"
+    },
+    {
+      "id": "pr-029",
+      "cat": "amor",
+      "texto": "¿Quién te quiso sin que te dieras cuenta en el momento?"
+    },
+    {
+      "id": "pr-030",
+      "cat": "amor",
+      "texto": "¿Qué parte de amar te sigue dando miedo?"
+    },
+    {
+      "id": "pr-031",
+      "cat": "miedos",
+      "texto": "¿Qué miedo te frena hoy y nadie lo nota?"
+    },
+    {
+      "id": "pr-032",
+      "cat": "miedos",
+      "texto": "¿A qué le tenés miedo que la mayoría ya superó?"
+    },
+    {
+      "id": "pr-033",
+      "cat": "miedos",
+      "texto": "¿Qué te da más miedo: equivocarte o quedarte quieto?"
+    },
+    {
+      "id": "pr-034",
+      "cat": "miedos",
+      "texto": "¿Qué miedo venciste y cómo fue ese momento?"
+    },
+    {
+      "id": "pr-035",
+      "cat": "miedos",
+      "texto": "¿Qué te da miedo perder y hacés poco por cuidarlo?"
+    },
+    {
+      "id": "pr-036",
+      "cat": "miedos",
+      "texto": "¿En qué pensás a las tres de la mañana cuando no podés dormir?"
+    },
+    {
+      "id": "pr-037",
+      "cat": "miedos",
+      "texto": "¿Qué te daría miedo que esta mesa supiera de vos?"
+    },
+    {
+      "id": "pr-038",
+      "cat": "miedos",
+      "texto": "¿Qué miedo heredaste de tu familia?"
+    },
+    {
+      "id": "pr-039",
+      "cat": "miedos",
+      "texto": "¿Qué harías distinto si no te importara lo que piensan los demás?"
+    },
+    {
+      "id": "pr-040",
+      "cat": "miedos",
+      "texto": "¿Cuándo fue la última vez que tuviste miedo y lo hiciste igual?"
+    }
+  ]
+}

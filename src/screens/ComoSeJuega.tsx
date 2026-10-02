@@ -27,7 +27,7 @@ export default function ComoSeJuega() {
             </li>
           ))}
         </ol>
-        <span className="etiqueta mt-7 block text-muted">Cuatro mazos</span>
+        <span className="etiqueta mt-7 block text-muted">Cinco mazos</span>
         <div className="mt-2.5 grid grid-cols-2 gap-2.5 pb-4">
           {LISTA_MAZOS.map((m) => (
             <div key={m.id} data-mazo={m.id} className="relative flex min-h-[108px] flex-col justify-between gap-2.5 rounded-[20px] px-4 pb-3.5 pt-4" style={{ background: 'var(--m-card)', color: 'var(--m-text)' }}>

@@ -21,10 +21,11 @@ export const BLOQUES_NOCHE: Record<BloqueNocheId, DefBloqueNoche> = {
   amigos: { id: 'amigos', titulo: 'Ahora, los amigos', subtitulo: 'Para reírse y debatir', mazoId: 'amigos', niveles: [1, 2] },
   parejas: { id: 'parejas', titulo: 'Ahora, las parejas', subtitulo: 'Cada pareja responde frente a la mesa', mazoId: 'pareja', niveles: [1, 2, 3], requiere: 'parejas' },
   familia: { id: 'familia', titulo: 'Ahora, la familia', subtitulo: 'Los demás escuchan, o responden si quieren', mazoId: 'familia', niveles: [1, 2, 3], requiere: 'familia' },
+  profundo: { id: 'profundo', titulo: 'Lo que importa', subtitulo: 'Amor, sueños, logros y miedos', mazoId: 'profundo', niveles: [2, 3] },
   profundidad: { id: 'profundidad', titulo: 'Para cerrar', subtitulo: 'Un poco más profundo, para todos', mazoId: null, niveles: [3] },
 };
 
-export const ORDEN_NOCHE_DEFAULT: BloqueNocheId[] = ['desconocidos', 'amigos', 'parejas', 'familia', 'profundidad'];
+export const ORDEN_NOCHE_DEFAULT: BloqueNocheId[] = ['desconocidos', 'amigos', 'parejas', 'familia', 'profundo', 'profundidad'];
 export const CARTAS_POR_BLOQUE_DEFAULT = 10;
 
 export const TITULOS_NIVEL: Record<Nivel, Bloque> = {

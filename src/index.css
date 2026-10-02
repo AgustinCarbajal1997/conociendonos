@@ -94,12 +94,14 @@
 [data-mazo='amigos'] { --m-card: #dcd6f2; --m-text: #342a66; --m-note: #4f4590; --m-chip: #5b4a9e; --m-chip-bg: rgb(91 74 158 / 0.13); --m-stack-1: #c8c0e6; --m-stack-2: #b4aad9; --m-line: rgb(52 42 102 / 0.16); }
 [data-mazo='pareja'] { --m-card: #f6d3dc; --m-text: #6a2740; --m-note: #8a3f5a; --m-chip: #a8415f; --m-chip-bg: rgb(168 65 95 / 0.13); --m-stack-1: #ebbdca; --m-stack-2: #dea6b7; --m-line: rgb(106 39 64 / 0.16); }
 [data-mazo='familia'] { --m-card: #f9dcc8; --m-text: #68381c; --m-note: #85492b; --m-chip: #9a5230; --m-chip-bg: rgb(154 82 48 / 0.13); --m-stack-1: #efc8ae; --m-stack-2: #e3b396; --m-line: rgb(104 56 28 / 0.16); }
+[data-mazo='profundo'] { --m-card: #cfe0f2; --m-text: #1f3e63; --m-note: #37587f; --m-chip: #2f5a8c; --m-chip-bg: rgb(47 90 140 / 0.13); --m-stack-1: #b8d0ea; --m-stack-2: #a1bee0; --m-line: rgb(31 62 99 / 0.16); }
 [data-mazo='especial'] { --m-card: var(--surface); --m-text: var(--text); --m-note: var(--muted); --m-chip: var(--amber-text); --m-chip-bg: rgb(154 79 63 / 0.12); --m-stack-1: var(--surface-2); --m-stack-2: var(--surface-2); --m-line: var(--line); }
 
 :root[data-theme='oscuro'] [data-mazo='desconocidos'] { --m-card: #1e5a58; --m-text: #f1f4ef; --m-note: #cfe3df; --m-chip: #6fc3b8; --m-chip-bg: rgb(111 195 184 / 0.14); --m-stack-1: #194b49; --m-stack-2: #154140; --m-line: rgb(241 244 239 / 0.18); }
 :root[data-theme='oscuro'] [data-mazo='amigos'] { --m-card: #c9952e; --m-text: #1e1507; --m-note: #3a2a0b; --m-chip: #e9b454; --m-chip-bg: rgb(233 180 84 / 0.14); --m-stack-1: #a97d26; --m-stack-2: #8f6a1e; --m-line: rgb(30 21 7 / 0.22); }
 :root[data-theme='oscuro'] [data-mazo='pareja'] { --m-card: #a8452f; --m-text: #fbefe9; --m-note: #fcebe4; --m-chip: #f08a6b; --m-chip-bg: rgb(240 138 107 / 0.14); --m-stack-1: #8d3a27; --m-stack-2: #74301f; --m-line: rgb(251 239 233 / 0.2); }
 :root[data-theme='oscuro'] [data-mazo='familia'] { --m-card: #5a2440; --m-text: #f6eaf0; --m-note: #e3c6d4; --m-chip: #d98bb0; --m-chip-bg: rgb(217 139 176 / 0.14); --m-stack-1: #4d1e37; --m-stack-2: #41192e; --m-line: rgb(246 234 240 / 0.18); }
+:root[data-theme='oscuro'] [data-mazo='profundo'] { --m-card: #2f4a6e; --m-text: #eef3fa; --m-note: #c9d8ea; --m-chip: #8fb8e8; --m-chip-bg: rgb(143 184 232 / 0.14); --m-stack-1: #283f5e; --m-stack-2: #213651; --m-line: rgb(238 243 250 / 0.18); }
 :root[data-theme='oscuro'] [data-mazo='especial'] { --m-chip: #f2b64a; --m-chip-bg: rgb(242 182 74 / 0.14); --m-note: #c9b8a3; }
 
 html, body, #root { height: 100%; }

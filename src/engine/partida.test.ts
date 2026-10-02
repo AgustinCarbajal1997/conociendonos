@@ -114,12 +114,12 @@ describe('siguiente', () => {
 
   it('termina cuando se agota la cola', () => {
     let { c, estado } = partidaNoche();
-    for (let i = 0; i < 50; i++) estado = siguiente(estado, c);
+    for (let i = 0; i < 60; i++) estado = siguiente(estado, c);
     expect(terminada(estado)).toBe(false);
-    expect(progresoBloque(estado)).toEqual({ bloque: 5, jugada: 10, total: 10 });
+    expect(progresoBloque(estado)).toEqual({ bloque: 6, jugada: 10, total: 10 });
     estado = siguiente(estado, c);
     expect(terminada(estado)).toBe(true);
-    expect(estado.historial).toHaveLength(50);
+    expect(estado.historial).toHaveLength(60);
   });
 
   it('contador de bloque', () => {
@@ -187,11 +187,11 @@ describe('especiales en partida', () => {
 
   it('una noche con especiales cada 8 tiene la cantidad esperada', () => {
     const { c, estado } = partidaNoche(todos, true);
-    expect(estado.cola.filter((it) => it.especial)).toHaveLength(6); // 50 regulares → después de la 8,16,24,32,40,48
+    expect(estado.cola.filter((it) => it.especial)).toHaveLength(7); // 60 regulares → después de la 8,16,…,56
     let e = estado;
     let n = 0;
     while (!terminada(e)) { e = siguiente(e, c); n++; }
-    expect(n).toBe(57);
+    expect(n).toBe(68);
   });
 });
 
@@ -304,7 +304,7 @@ describe('modo progresivo', () => {
 describe('contador con especiales', () => {
   it('no cuenta las especiales en el total del bloque', () => {
     const { c, estado } = partidaNoche(todos, true);
-    expect(estado.tamanosBloques).toEqual([10, 10, 10, 10, 10]);
+    expect(estado.tamanosBloques).toEqual([10, 10, 10, 10, 10, 10]);
     let e = estado;
     for (let i = 0; i < 9; i++) e = siguiente(e, c); // 8 regulares + la especial
     expect(e.actual?.especial).toBe(true);

@@ -69,6 +69,17 @@ const MAZOS: DefMazo[] = [
       { id: 'profundidad', nombre: 'Profundidad', nivel: 3 },
     ],
   },
+  {
+    id: 'profundo', nombre: 'Profundo', prefijo: 'pr',
+    descripcion: 'Amor, sueños, logros y miedos: lo que importa de verdad',
+    color: '#2F4A6E', audiencia: 'todos',
+    categorias: [
+      { id: 'suenos', nombre: 'Sueños', nivel: 2 },
+      { id: 'logros', nombre: 'Logros', nivel: 2 },
+      { id: 'amor', nombre: 'Amor', nivel: 3 },
+      { id: 'miedos', nombre: 'Miedos', nivel: 3 },
+    ],
+  },
 ];
 
 const ESPECIALES_IDS: Record<string, string> = {

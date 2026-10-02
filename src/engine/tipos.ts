@@ -19,7 +19,7 @@ export interface Jugador { id: string; nombre: string; parejaId?: string; famili
 export type Modo = 'noche' | 'progresivo' | 'mezclado' | 'categoria';
 export type ModoSuelto = Exclude<Modo, 'noche'>;
 
-export type BloqueNocheId = 'desconocidos' | 'amigos' | 'parejas' | 'familia' | 'profundidad';
+export type BloqueNocheId = 'desconocidos' | 'amigos' | 'parejas' | 'familia' | 'profundo' | 'profundidad';
 
 export interface ConfigNoche { ordenBloques: BloqueNocheId[]; cartasPorBloque: number }
 /** Mazo suelto: uno o varios mazos; categorías activas por mazo (vacío = todas). */

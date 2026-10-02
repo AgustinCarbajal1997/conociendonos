@@ -16,6 +16,7 @@ const NOMBRES_BLOQUE: Record<BloqueNocheId, string> = {
   amigos: 'Amigos',
   parejas: 'Parejas',
   familia: 'Familia',
+  profundo: 'Lo que importa',
   profundidad: 'Profundidad para todos',
 };
 
@@ -89,6 +90,7 @@ export default function Configuracion() {
     if (def.requiere === 'familia') return fs.length ? `Entre generaciones · ${fs.map((f) => f.nombre).join(', ')}` : 'Se salta: no hay familia cargada';
     if (id === 'desconocidos') return 'Desconocidos · nivel 1';
     if (id === 'amigos') return 'Lo que no se dice en el grupo';
+    if (id === 'profundo') return 'Amor, sueños, logros y miedos · todos';
     return 'Nivel 3 de todos los mazos';
   };
 

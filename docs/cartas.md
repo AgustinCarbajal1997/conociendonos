@@ -1,6 +1,6 @@
 # Cartas de Sale a la Luz
 
-Las 160 cartas de la noche, 10 por categoría, más 4 especiales. Este archivo es la fuente de verdad: `pnpm importar` lo convierte a JSON en `src/content/`.
+Las 200 cartas de la noche, 10 por categoría en 5 mazos, más 4 especiales. Este archivo es la fuente de verdad: `pnpm importar` lo convierte a JSON en `src/content/`.
 
 **Amigos**
 
@@ -181,6 +181,51 @@ Las 160 cartas de la noche, 10 por categoría, más 4 especiales. Este archivo e
 | Profundidad | ¿En qué momento sentiste que te entendí sin que hablaras? |
 | Profundidad | ¿Qué te gustaría que fuera distinto en cómo discutimos? |
 | Profundidad | ¿Qué te hace sentir elegido por mí? |
+
+**Profundo**
+
+| Categoría | Pregunta |
+|---|---|
+| Sueños | ¿Qué sueño tenías de chico que todavía no soltaste? |
+| Sueños | ¿Qué harías si supieras que no puede salir mal? |
+| Sueños | ¿Qué lugar del mundo querés conocer antes de que pase mucho tiempo, y con quién? |
+| Sueños | ¿Qué te gustaría aprender aunque no sirva para nada? |
+| Sueños | ¿Cómo sería un día perfecto tuyo dentro de diez años? |
+| Sueños | ¿Qué sueño dejaste de contar porque te daba vergüenza? |
+| Sueños | ¿Qué cosa chica podrías hacer mañana para acercarte a lo que querés? |
+| Sueños | ¿Qué te gustaría que dijeran de vos cuando no estás en la mesa? |
+| Sueños | Si pudieras dedicarte a otra cosa durante un año, ¿qué elegirías? |
+| Sueños | ¿Qué sueño compartís con alguien de esta mesa? |
+| Logros | ¿De qué logro estás más orgulloso y casi nadie sabe? |
+| Logros | ¿Qué te costó mucho más de lo que parece desde afuera? |
+| Logros | ¿En qué momento sentiste "lo logré", aunque fuera algo chico? |
+| Logros | ¿Quién te ayudó a llegar a donde estás y nunca se lo agradeciste del todo? |
+| Logros | ¿Qué fracaso terminó siendo lo mejor que te pasó? |
+| Logros | ¿Qué hábito te cambió la vida más de lo que esperabas? |
+| Logros | ¿Qué logro de alguien de esta mesa admirás? |
+| Logros | ¿Qué te gustaría lograr este año y qué te frena? |
+| Logros | ¿Qué cosa de tu vida de hoy sorprendería más a tu versión de hace diez años? |
+| Logros | ¿Qué celebraste poco y merecía más fiesta? |
+| Amor | ¿Cuándo te sentiste más querido en tu vida? |
+| Amor | ¿Qué aprendiste del amor que no sabías a los veinte? |
+| Amor | ¿A quién le dirías "te quiero" más seguido si no te diera pudor? |
+| Amor | ¿Qué gesto chico te hace sentir amado? |
+| Amor | ¿Qué amor, de pareja o no, te cambió la forma de ver a la gente? |
+| Amor | ¿Qué te cuesta más: dar amor o recibirlo? |
+| Amor | ¿Qué te enseñó un desamor que hoy agradecés? |
+| Amor | ¿Cómo demostrás cariño cuando no te salen las palabras? |
+| Amor | ¿Quién te quiso sin que te dieras cuenta en el momento? |
+| Amor | ¿Qué parte de amar te sigue dando miedo? |
+| Miedos | ¿Qué miedo te frena hoy y nadie lo nota? |
+| Miedos | ¿A qué le tenés miedo que la mayoría ya superó? |
+| Miedos | ¿Qué te da más miedo: equivocarte o quedarte quieto? |
+| Miedos | ¿Qué miedo venciste y cómo fue ese momento? |
+| Miedos | ¿Qué te da miedo perder y hacés poco por cuidarlo? |
+| Miedos | ¿En qué pensás a las tres de la mañana cuando no podés dormir? |
+| Miedos | ¿Qué te daría miedo que esta mesa supiera de vos? |
+| Miedos | ¿Qué miedo heredaste de tu familia? |
+| Miedos | ¿Qué harías distinto si no te importara lo que piensan los demás? |
+| Miedos | ¿Cuándo fue la última vez que tuviste miedo y lo hiciste igual? |
 
 **Especiales**
 
