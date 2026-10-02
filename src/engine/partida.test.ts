@@ -176,9 +176,9 @@ describe('especiales en partida', () => {
     e = siguiente(e, c);
     expect(necesitaCategoria(e)).toBe(true);
     const disp = categoriasDisponibles(e, c);
-    expect(disp?.mazoId).toBe('amigos');
-    expect(disp?.categorias.map((k) => k.id)).toContain('profundidad');
-    e = siguiente(e, c, 'profundidad');
+    expect(disp.every((o) => o.mazoId === 'amigos')).toBe(true);
+    expect(disp.map((o) => o.categoria.id)).toContain('profundidad');
+    e = siguiente(e, c, 'amigos/profundidad');
     expect(necesitaCategoria(e)).toBe(false);
     const carta = MAZOS.amigos.cartas.find((k) => k.id === e.actual?.cartaId);
     expect(carta?.cat).toBe('profundidad');
@@ -262,22 +262,33 @@ describe('favoritas', () => {
 describe('modo por categoría', () => {
   it('cada carta se elige por categoría hasta agotarla', () => {
     const c = ctx([pepe]);
-    const armado = armarCola(MAZOS.familia, { mazoId: 'familia', categorias: ['raices', 'sobre-mi'], modo: 'categoria' }, new Set(), c.rng);
+    const armado = armarCola([MAZOS.familia], { categorias: { familia: ['raices', 'sobre-mi'] }, modo: 'categoria' }, new Set(), c.rng);
     let e = crearPartida('categoria', armado, { limitePases: 2, ahora: 0 });
     expect(necesitaCategoria(e)).toBe(true);
-    expect(categoriasDisponibles(e, c)?.categorias.map((k) => k.id)).toEqual(['raices', 'sobre-mi']);
+    expect(categoriasDisponibles(e, c).map((o) => o.clave)).toEqual(['familia/raices', 'familia/sobre-mi']);
     for (let i = 0; i < 10; i++) {
-      e = siguiente(e, c, 'raices');
+      e = siguiente(e, c, 'familia/raices');
       expect(MAZOS.familia.cartas.find((k) => k.id === e.actual?.cartaId)?.cat).toBe('raices');
     }
-    expect(categoriasDisponibles(e, c)?.categorias.map((k) => k.id)).toEqual(['sobre-mi']);
+    expect(categoriasDisponibles(e, c).map((o) => o.clave)).toEqual(['familia/sobre-mi']);
+  });
+
+  it('con varios mazos, la clave distingue categorías del mismo nombre', () => {
+    const c = ctx([pepe]);
+    const armado = armarCola([MAZOS.amigos, MAZOS.desconocidos], { categorias: { amigos: ['rompehielo'], desconocidos: ['rompehielo'] }, modo: 'categoria' }, new Set(), c.rng);
+    let e = crearPartida('categoria', armado, { limitePases: 2, ahora: 0 });
+    expect(categoriasDisponibles(e, c).map((o) => o.clave)).toEqual(['desconocidos/rompehielo', 'amigos/rompehielo']);
+    e = siguiente(e, c, 'desconocidos/rompehielo');
+    expect(e.actual?.mazoId).toBe('desconocidos');
+    e = siguiente(e, c, 'amigos/rompehielo');
+    expect(e.actual?.mazoId).toBe('amigos');
   });
 });
 
 describe('modo progresivo', () => {
   it('marca cambio de bloque al subir de nivel', () => {
     const c = ctx([pepe, lu]);
-    const armado = armarCola(MAZOS.amigos, { mazoId: 'amigos', categorias: [], modo: 'progresivo' }, new Set(), c.rng);
+    const armado = armarCola([MAZOS.amigos], { categorias: {}, modo: 'progresivo' }, new Set(), c.rng);
     let e = crearPartida('progresivo', armado, { limitePases: 2, ahora: 0 });
     const cambios: number[] = [];
     let i = 0;

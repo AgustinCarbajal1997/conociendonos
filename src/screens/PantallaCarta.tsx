@@ -66,15 +66,18 @@ export default function PantallaCarta() {
 
   const mostrarSelector = partida.modo === 'categoria' ? (!partida.actual || eligiendo) : partida.eligeCategoria;
   if (mostrarSelector && necesitaCategoria(partida)) {
-    const disp = categoriasDisponibles(partida, ctx);
-    if (disp) {
+    const opciones = categoriasDisponibles(partida, ctx);
+    if (opciones.length > 0) {
+      const mazosEnJuego = [...new Set(opciones.map((o) => o.mazoId))];
+      const unico = mazosEnJuego.length === 1 ? mazosEnJuego[0] : null;
       return (
         <SelectorCategoria
-          mazoId={disp.mazoId}
-          contador={`${MAZOS[disp.mazoId].nombre} · ${contador}`}
+          mazoId={unico ?? 'especial'}
+          mazos={MAZOS}
+          contador={`${unico ? MAZOS[unico].nombre : `${mazosEnJuego.length} mazos`} · ${contador}`}
           quien={partida.eligeCategoria && partida.ultimoRespondio ? nombreQuien(partida.ultimoRespondio, jugadores) : null}
-          categorias={disp.categorias}
-          onElegir={(catId) => { setEligiendo(false); siguiente(catId); }}
+          opciones={opciones}
+          onElegir={(clave) => { setEligiendo(false); siguiente(clave); }}
           onTerminar={terminar}
         />
       );

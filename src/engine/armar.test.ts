@@ -104,7 +104,7 @@ describe('elegirPorNiveles', () => {
 
 describe('armarCola', () => {
   it('progresivo: nivel 1 → 2 → 3 con un bloque por nivel', () => {
-    const { cola, bloques } = armarCola(MAZOS.amigos, { mazoId: 'amigos', categorias: [], modo: 'progresivo' }, new Set(), rng());
+    const { cola, bloques } = armarCola([MAZOS.amigos], { categorias: {}, modo: 'progresivo' }, new Set(), rng());
     expect(cola).toHaveLength(40);
     expect(bloques.map((b) => b.id)).toEqual(['nivel-1', 'nivel-2', 'nivel-3']);
     const niveles = cola.map((it) => it.nivel);
@@ -113,7 +113,7 @@ describe('armarCola', () => {
   });
 
   it('mezclado: solo categorías activas, un bloque, no está ordenado por nivel', () => {
-    const { cola, bloques } = armarCola(MAZOS.amigos, { mazoId: 'amigos', categorias: ['rompehielo', 'profundidad'], modo: 'mezclado' }, new Set(), rng());
+    const { cola, bloques } = armarCola([MAZOS.amigos], { categorias: { amigos: ['rompehielo', 'profundidad'] }, modo: 'mezclado' }, new Set(), rng());
     expect(cola).toHaveLength(20);
     expect(bloques).toHaveLength(1);
     expect(cola.every((it) => it.bloque === 0)).toBe(true);
@@ -122,8 +122,26 @@ describe('armarCola', () => {
   });
 
   it('por categoría: todas las cartas activas en un bloque', () => {
-    const { cola } = armarCola(MAZOS.familia, { mazoId: 'familia', categorias: ['raices'], modo: 'categoria' }, new Set(), rng());
+    const { cola } = armarCola([MAZOS.familia], { categorias: { familia: ['raices'] }, modo: 'categoria' }, new Set(), rng());
     expect(cola).toHaveLength(10);
+  });
+});
+
+describe('armarCola con varios mazos', () => {
+  it('progresivo mezcla los mazos elegidos y respeta el orden de nivel', () => {
+    const { cola, bloques } = armarCola([MAZOS.amigos, MAZOS.familia], { categorias: {}, modo: 'progresivo' }, new Set(), rng());
+    expect(cola).toHaveLength(80);
+    expect(bloques.map((b) => b.id)).toEqual(['nivel-1', 'nivel-2', 'nivel-3']);
+    expect(new Set(cola.map((it) => it.mazoId))).toEqual(new Set(['amigos', 'familia']));
+    const niveles = cola.map((it) => it.nivel);
+    expect(niveles).toEqual([...niveles].sort());
+    const nivel1 = cola.filter((it) => it.nivel === 1);
+    expect(nivel1.some((it) => it.mazoId === 'amigos') && nivel1.some((it) => it.mazoId === 'familia')).toBe(true);
+  });
+  it('respeta las categorías activas de cada mazo por separado', () => {
+    const { cola } = armarCola([MAZOS.amigos, MAZOS.pareja], { categorias: { amigos: ['rompehielo'], pareja: [] }, modo: 'mezclado' }, new Set(), rng());
+    expect(cola.filter((it) => it.mazoId === 'amigos')).toHaveLength(10);
+    expect(cola.filter((it) => it.mazoId === 'pareja')).toHaveLength(40);
   });
 });
 

@@ -56,35 +56,53 @@ function categoriaDe(item: ItemCola, ctx: Contexto): string | undefined {
   return ctx.mazos[item.mazoId]?.cartas.find((c) => c.id === item.cartaId)?.cat;
 }
 
-/** Categorías que se pueden elegir ahora (modo "por categoría" o después de "Elegí vos"). */
-export function categoriasDisponibles(estado: EstadoPartida, ctx: Contexto): { mazoId: string; categorias: Categoria[] } | null {
-  const proxima = estado.cola.find((it) => !it.especial);
-  if (!proxima) return null;
-  const mazo = ctx.mazos[proxima.mazoId];
-  if (!mazo) return null;
-  if (estado.modo === 'categoria') {
-    const enCola = new Set(estado.cola.filter((it) => !it.especial).map((it) => categoriaDe(it, ctx)));
-    return { mazoId: mazo.id, categorias: mazo.categorias.filter((c) => enCola.has(c.id)) };
-  }
-  // Después de "Elegí vos": cualquier categoría del mazo que viene, aunque haya que traer una carta nueva.
-  const vistas = new Set(estado.historial);
-  return {
-    mazoId: mazo.id,
-    categorias: mazo.categorias.filter((c) => mazo.cartas.some((k) => k.cat === c.id && !vistas.has(k.id))),
-  };
+export interface OpcionCategoria {
+  /** "mazoId/catId": lo que se pasa a `siguiente`. */
+  clave: string;
+  mazoId: string;
+  categoria: Categoria;
 }
 
-/** Mueve al frente de la cola una carta de la categoría pedida, trayendo una nueva del mazo si hace falta. */
-function traerDeCategoria(estado: EstadoPartida, catId: string, ctx: Contexto): ItemCola[] {
+/** Categorías que se pueden elegir ahora (modo "por categoría" o después de "Elegí vos"), agrupadas por mazo. */
+export function categoriasDisponibles(estado: EstadoPartida, ctx: Contexto): OpcionCategoria[] {
+  const opciones: OpcionCategoria[] = [];
+  if (estado.modo === 'categoria') {
+    const enCola = new Set(estado.cola.filter((it) => !it.especial).map((it) => `${it.mazoId}/${categoriaDe(it, ctx)}`));
+    for (const mazo of Object.values(ctx.mazos)) {
+      for (const categoria of mazo.categorias) {
+        const clave = `${mazo.id}/${categoria.id}`;
+        if (enCola.has(clave)) opciones.push({ clave, mazoId: mazo.id, categoria });
+      }
+    }
+    return opciones;
+  }
+  // Después de "Elegí vos": cualquier categoría del mazo que viene, aunque haya que traer una carta nueva.
+  const proxima = estado.cola.find((it) => !it.especial);
+  const mazo = proxima ? ctx.mazos[proxima.mazoId] : undefined;
+  if (!mazo) return opciones;
+  const vistas = new Set(estado.historial);
+  for (const categoria of mazo.categorias) {
+    if (mazo.cartas.some((k) => k.cat === categoria.id && !vistas.has(k.id))) {
+      opciones.push({ clave: `${mazo.id}/${categoria.id}`, mazoId: mazo.id, categoria });
+    }
+  }
+  return opciones;
+}
+
+/** Mueve al frente de la cola una carta de la categoría pedida ("catId" o "mazoId/catId"), trayendo una nueva del mazo si hace falta. */
+function traerDeCategoria(estado: EstadoPartida, clave: string, ctx: Contexto): ItemCola[] {
+  const barra = clave.indexOf('/');
+  const mazoFiltro = barra >= 0 ? clave.slice(0, barra) : undefined;
+  const catId = barra >= 0 ? clave.slice(barra + 1) : clave;
   const cola = estado.cola.slice();
-  const idx = cola.findIndex((it) => !it.especial && categoriaDe(it, ctx) === catId);
+  const idx = cola.findIndex((it) => !it.especial && (!mazoFiltro || it.mazoId === mazoFiltro) && categoriaDe(it, ctx) === catId);
   if (idx >= 0) {
     const [item] = cola.splice(idx, 1);
     return [item, ...cola];
   }
   if (estado.modo === 'categoria') return cola;
   const proxima = cola.find((it) => !it.especial);
-  const mazo = proxima ? ctx.mazos[proxima.mazoId] : undefined;
+  const mazo = mazoFiltro ? ctx.mazos[mazoFiltro] : proxima ? ctx.mazos[proxima.mazoId] : undefined;
   if (!mazo || !proxima) return cola;
   const enCola = new Set(cola.map((it) => it.cartaId));
   const vistas = new Set(estado.historial);
@@ -137,7 +155,7 @@ function avanzar(estado: EstadoPartida, ctx: Contexto, opciones: { catId?: strin
 }
 
 /**
- * Pasa a la próxima carta. En modo "por categoría" (o después de "Elegí vos") hay que pasar `catId`.
+ * Pasa a la próxima carta. En modo "por categoría" (o después de "Elegí vos") hay que pasar la clave de categoría ("mazoId/catId" o "catId").
  * Si la cola se vació, `actual` queda en null: la UI muestra el resumen.
  */
 export function siguiente(estado: EstadoPartida, ctx: Contexto, catId?: string): EstadoPartida {
@@ -196,7 +214,7 @@ export function toggleFavorita(estado: EstadoPartida): EstadoPartida {
 /** Posición dentro del bloque actual, contando solo cartas regulares: { jugada: 4, total: 10 }. */
 export function progresoBloque(estado: EstadoPartida): { bloque: number; jugada: number; total: number } {
   const b = estado.bloqueActual;
-  if (b < 0) return { bloque: 0, jugada: 0, total: 0 };
+  if (b < 0) return { bloque: 1, jugada: 0, total: estado.tamanosBloques[0] ?? 0 };
   const total = estado.tamanosBloques[b] ?? 0;
   const pendientes = estado.cola.filter((it) => it.bloque === b && !it.especial).length;
   return { bloque: b + 1, jugada: Math.max(0, total - pendientes), total };

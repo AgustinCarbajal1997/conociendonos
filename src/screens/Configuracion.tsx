@@ -58,24 +58,29 @@ export default function Configuracion() {
 
   const ps = parejas(jugadores);
   const fs = familiares(jugadores);
-  const mazo = MAZOS[config.mazoId] ?? MAZOS.amigos;
-  const activas = config.categorias[mazo.id] ?? [];
-  const todasActivas = activas.length === 0;
+  const mazosElegidos = LISTA_MAZOS.filter((m) => config.mazosIds.includes(m.id));
 
   const armado = useMemo(() => {
     const vistos = new Set(config.sinRepetir ? historialVisto : []);
     if (tipo === 'noche') {
       return armarNoche(MAZOS, jugadores, { ordenBloques: config.ordenBloques, cartasPorBloque: config.cartasPorBloque }, vistos, rngSemilla(1));
     }
-    return armarCola(mazo, { mazoId: mazo.id, categorias: activas, modo: config.modoSuelto }, vistos, rngSemilla(1));
-  }, [tipo, config, jugadores, historialVisto, mazo, activas]);
+    return armarCola(mazosElegidos, { categorias: config.categorias, modo: config.modoSuelto }, vistos, rngSemilla(1));
+  }, [tipo, config, jugadores, historialVisto, mazosElegidos]);
   const cantidad = armado.cola.length;
 
-  const toggleCategoria = (catId: string) => {
-    const base = todasActivas ? mazo.categorias.map((c) => c.id) : activas;
+  const toggleMazo = (id: string) => {
+    const nuevos = config.mazosIds.includes(id) ? config.mazosIds.filter((m) => m !== id) : [...config.mazosIds, id];
+    if (nuevos.length === 0) return;
+    setConfig({ mazosIds: LISTA_MAZOS.map((m) => m.id).filter((m) => nuevos.includes(m)) });
+  };
+  const toggleCategoria = (mazoId: string, catId: string) => {
+    const mazo = MAZOS[mazoId];
+    const activas = config.categorias[mazoId] ?? [];
+    const base = activas.length === 0 ? mazo.categorias.map((c) => c.id) : activas;
     const nuevas = base.includes(catId) ? base.filter((c) => c !== catId) : [...base, catId];
     if (nuevas.length === 0) return;
-    setCategoriasMazo(mazo.id, nuevas.length === mazo.categorias.length ? [] : nuevas);
+    setCategoriasMazo(mazoId, nuevas.length === mazo.categorias.length ? [] : nuevas);
   };
 
   const detalleBloque = (id: BloqueNocheId): string => {
@@ -145,42 +150,56 @@ export default function Configuracion() {
               </>
             ) : (
               <>
-                <Seccion titulo="Mazo">
-                  <div className="grid grid-cols-2 gap-2" role="radiogroup" aria-label="Mazo">
-                    {LISTA_MAZOS.map((m) => (
-                      <button
-                        key={m.id}
-                        type="button"
-                        role="radio"
-                        aria-checked={m.id === mazo.id}
-                        data-mazo={m.id}
-                        onClick={() => setConfig({ mazoId: m.id })}
-                        className="flex h-14 items-center gap-2.5 rounded-2xl bg-surface-2 px-3.5 text-left text-[15px] font-semibold"
-                        style={m.id === mazo.id ? { boxShadow: '0 0 0 2px var(--m-chip)' } : undefined}
-                      >
-                        <span className="h-6 w-[18px] shrink-0 rounded-[5px]" style={{ background: 'var(--m-card)', boxShadow: 'inset 0 0 0 1px var(--m-line)' }} />
-                        {m.nombre}
-                      </button>
-                    ))}
-                  </div>
-                  <p className="m-0 text-[13px] text-muted">{mazo.descripcion}</p>
-                </Seccion>
-                <Seccion titulo="Categorías · tocá para activar">
-                  <div className="flex flex-wrap gap-2" data-mazo={mazo.id}>
-                    {mazo.categorias.map((c) => {
-                      const activa = todasActivas || activas.includes(c.id);
+                <Seccion titulo="Mazos · tocá para elegir uno o varios">
+                  <div className="grid grid-cols-2 gap-2">
+                    {LISTA_MAZOS.map((m) => {
+                      const elegido = config.mazosIds.includes(m.id);
                       return (
                         <button
-                          key={c.id}
+                          key={m.id}
                           type="button"
-                          aria-pressed={activa}
-                          onClick={() => toggleCategoria(c.id)}
-                          className="flex h-11 items-center gap-2 rounded-full pl-3.5 pr-4 text-sm font-semibold transition-colors duration-150"
-                          style={activa ? { background: 'var(--m-chip)', color: 'var(--bg)' } : { background: 'var(--m-chip-bg)', color: 'var(--m-chip)' }}
+                          aria-pressed={elegido}
+                          data-mazo={m.id}
+                          onClick={() => toggleMazo(m.id)}
+                          className="flex h-14 items-center gap-2.5 rounded-2xl bg-surface-2 px-3.5 text-left text-[15px] font-semibold transition"
+                          style={elegido ? { boxShadow: '0 0 0 2px var(--m-chip)' } : { opacity: 0.6 }}
                         >
-                          {c.nombre}
-                          <NivelPuntos nivel={c.nivel} tamano={6} etiqueta={false} />
+                          <span className="h-6 w-[18px] shrink-0 rounded-[5px]" style={{ background: 'var(--m-card)', boxShadow: 'inset 0 0 0 1px var(--m-line)' }} />
+                          {m.nombre}
                         </button>
+                      );
+                    })}
+                  </div>
+                  <p className="m-0 text-[13px] text-muted">
+                    {mazosElegidos.length === 1 ? mazosElegidos[0].descripcion : `${mazosElegidos.length} mazos mezclados · ${cantidad} cartas`}
+                  </p>
+                </Seccion>
+                <Seccion titulo="Categorías · tocá para activar">
+                  <div className="flex flex-col gap-3">
+                    {mazosElegidos.map((mazo) => {
+                      const activas = config.categorias[mazo.id] ?? [];
+                      return (
+                        <div key={mazo.id} data-mazo={mazo.id} className="flex flex-col gap-1.5">
+                          {mazosElegidos.length > 1 && <span className="text-[13px] font-semibold" style={{ color: 'var(--m-chip)' }}>{mazo.nombre}</span>}
+                          <div className="flex flex-wrap gap-2">
+                            {mazo.categorias.map((c) => {
+                              const activa = activas.length === 0 || activas.includes(c.id);
+                              return (
+                                <button
+                                  key={c.id}
+                                  type="button"
+                                  aria-pressed={activa}
+                                  onClick={() => toggleCategoria(mazo.id, c.id)}
+                                  className="flex h-11 items-center gap-2 rounded-full pl-3.5 pr-4 text-sm font-semibold transition-colors duration-150"
+                                  style={activa ? { background: 'var(--m-chip)', color: 'var(--bg)' } : { background: 'var(--m-chip-bg)', color: 'var(--m-chip)' }}
+                                >
+                                  {c.nombre}
+                                  <NivelPuntos nivel={c.nivel} tamano={6} etiqueta={false} />
+                                </button>
+                              );
+                            })}
+                          </div>
+                        </div>
                       );
                     })}
                   </div>

@@ -16,7 +16,8 @@ export type Tema = 'claro' | 'oscuro';
 export interface Config {
   ordenBloques: BloqueNocheId[];
   cartasPorBloque: number;
-  mazoId: string;
+  /** Mazos elegidos para jugar un mazo suelto (al menos uno). */
+  mazosIds: string[];
   /** Categorías activas por mazo (vacío = todas). */
   categorias: Record<string, string[]>;
   modoSuelto: ModoSuelto;
@@ -30,7 +31,7 @@ export interface Config {
 export const CONFIG_DEFAULT: Config = {
   ordenBloques: ORDEN_NOCHE_DEFAULT,
   cartasPorBloque: CARTAS_POR_BLOQUE_DEFAULT,
-  mazoId: 'amigos',
+  mazosIds: ['amigos'],
   categorias: {},
   modoSuelto: 'progresivo',
   especiales: true,
@@ -142,8 +143,8 @@ export const useStore = create<Store>()(
           armado = armarNoche(MAZOS, jugadores, { ordenBloques: config.ordenBloques, cartasPorBloque: config.cartasPorBloque }, vistos);
         } else {
           modo = config.modoSuelto;
-          const mazo = MAZOS[config.mazoId] ?? MAZOS.amigos;
-          armado = armarCola(mazo, { mazoId: mazo.id, categorias: config.categorias[mazo.id] ?? [], modo }, vistos);
+          const mazos = config.mazosIds.map((id) => MAZOS[id]).filter(Boolean);
+          armado = armarCola(mazos.length ? mazos : [MAZOS.amigos], { categorias: config.categorias, modo }, vistos);
         }
         if (config.especiales && modo !== 'categoria') {
           armado = { ...armado, cola: intercalarEspeciales(armado.cola, ESPECIALES, CADA_ESPECIAL) };
@@ -212,6 +213,9 @@ export const useStore = create<Store>()(
       merge: (persistido, actual) => {
         const p = (persistido ?? {}) as Partial<Estado>;
         const estado: Estado & Acciones = { ...actual, ...p, config: { ...CONFIG_DEFAULT, ...(p.config ?? {}) } };
+        // Versiones anteriores guardaban un solo mazoId.
+        const viejo = (p.config as { mazoId?: string } | undefined)?.mazoId;
+        if (!Array.isArray(estado.config.mazosIds) || estado.config.mazosIds.length === 0) estado.config.mazosIds = [viejo && MAZOS[viejo] ? viejo : 'amigos'];
         // Si quedó en una pantalla de juego sin partida, volvemos al inicio.
         if ((estado.pantalla === 'carta' || estado.pantalla === 'resumen') && !estado.partida) estado.pantalla = 'inicio';
         if (estado.pantalla === 'configuracion') estado.pantalla = 'jugadores';

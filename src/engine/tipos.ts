@@ -22,7 +22,8 @@ export type ModoSuelto = Exclude<Modo, 'noche'>;
 export type BloqueNocheId = 'desconocidos' | 'amigos' | 'parejas' | 'familia' | 'profundidad';
 
 export interface ConfigNoche { ordenBloques: BloqueNocheId[]; cartasPorBloque: number }
-export interface ConfigSuelto { mazoId: string; categorias: string[]; modo: ModoSuelto }
+/** Mazo suelto: uno o varios mazos; categorías activas por mazo (vacío = todas). */
+export interface ConfigSuelto { categorias: Record<string, string[]>; modo: ModoSuelto }
 export interface Reglas { especiales: boolean; pasar: boolean; sinRepetir: boolean }
 
 /** Un ítem de la cola: carta regular o carta especial. */

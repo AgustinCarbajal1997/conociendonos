@@ -132,31 +132,36 @@ export function armarNoche(
 }
 
 export function armarCola(
-  mazo: Mazo,
+  mazos: Mazo[],
   config: ConfigSuelto,
   vistos: Set<string> = new Set(),
   rng: () => number = Math.random,
 ): Armado {
-  const activas = new Set(config.categorias.length ? config.categorias : mazo.categorias.map((c) => c.id));
-  const pool = mazo.cartas.filter((c) => activas.has(c.cat));
-  const barajadas = barajarPreferiendoNuevas(pool, vistos, rng);
+  const pool: { carta: Carta; mazo: Mazo }[] = [];
+  for (const mazo of mazos) {
+    const activas = config.categorias[mazo.id] ?? [];
+    const set = new Set(activas.length ? activas : mazo.categorias.map((c) => c.id));
+    for (const carta of mazo.cartas) if (set.has(carta.cat)) pool.push({ carta, mazo });
+  }
+  const mezcladas = mezclar(pool, rng);
+  const nuevas = mezcladas.filter((x) => !vistos.has(x.carta.id));
+  const viejas = mezcladas.filter((x) => vistos.has(x.carta.id));
+  const items = [...nuevas, ...viejas].map(({ carta, mazo }) => ({
+    cartaId: carta.id, mazoId: mazo.id, bloque: 0, nivel: nivelDe(mazo, carta),
+  }));
 
   if (config.modo === 'progresivo') {
-    const niveles = [...new Set(barajadas.map((c) => nivelDe(mazo, c)))].sort((a, b) => a - b);
-    const bloques = niveles.map((nv) => TITULOS_NIVEL[nv]);
-    const cola = barajadas
-      .map((c) => ({ carta: c, nivel: nivelDe(mazo, c) }))
+    const niveles = [...new Set(items.map((it) => it.nivel))].sort((a, b) => a - b);
+    const cola = items
+      .slice()
       .sort((a, b) => a.nivel - b.nivel)
-      .map(({ carta, nivel }) => ({ cartaId: carta.id, mazoId: mazo.id, bloque: niveles.indexOf(nivel), nivel }));
-    return { cola, bloques };
+      .map((it) => ({ ...it, bloque: niveles.indexOf(it.nivel) }));
+    return { cola, bloques: niveles.map((nv) => TITULOS_NIVEL[nv]) };
   }
 
   const titulo = config.modo === 'mezclado' ? 'Todo mezclado' : 'Elegí la categoría';
   const subtitulo = config.modo === 'mezclado' ? 'Las categorías salen al azar' : 'Antes de cada carta, quien tiene el celular elige';
-  return {
-    cola: barajadas.map((c) => ({ cartaId: c.id, mazoId: mazo.id, bloque: 0, nivel: nivelDe(mazo, c) })),
-    bloques: [{ id: mazo.id, titulo, subtitulo }],
-  };
+  return { cola: items, bloques: [{ id: mazos.map((m) => m.id).join('+'), titulo, subtitulo }] };
 }
 
 /** Inserta una carta especial después de cada `cada` cartas regulares (nunca dos iguales seguidas). */
