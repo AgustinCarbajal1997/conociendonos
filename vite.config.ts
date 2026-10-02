@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
 import { VitePWA } from 'vite-plugin-pwa';
 
-// Para GitHub Pages: BASE_PATH=/charlemos/ pnpm build
+// Para GitHub Pages: BASE_PATH=/sale-a-la-luz/ pnpm build
 const base = process.env.BASE_PATH ?? '/';
 
 export default defineConfig({
@@ -15,8 +15,8 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['icono.svg', 'apple-touch-icon.png'],
       manifest: {
-        name: 'Charlemos',
-        short_name: 'Charlemos',
+        name: 'Sale a la Luz',
+        short_name: 'Sale a la Luz',
         description: 'Cartas de conversación para una noche con amigos, parejas y familia.',
         lang: 'es',
         theme_color: '#121212',

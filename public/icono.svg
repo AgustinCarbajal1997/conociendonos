@@ -1,8 +1,20 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-  <rect width="512" height="512" rx="110" fill="#121212"/>
-  <rect x="96" y="128" width="320" height="224" rx="56" fill="#E9C46A"/>
-  <path d="M168 352 L152 420 L232 352 Z" fill="#E9C46A"/>
-  <circle cx="186" cy="240" r="22" fill="#141414"/>
-  <circle cx="256" cy="240" r="22" fill="#141414"/>
-  <circle cx="326" cy="240" r="22" fill="#141414"/>
+  <defs>
+    <linearGradient id="sol" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFE08A"/>
+      <stop offset="1" stop-color="#FF7A59"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="#0F0E14"/>
+  <g stroke="#FFD66B" stroke-width="16" stroke-linecap="round">
+    <line x1="256" y1="96" x2="256" y2="48"/>
+    <line x1="158" y1="136" x2="124" y2="102"/>
+    <line x1="354" y1="136" x2="388" y2="102"/>
+    <line x1="118" y1="232" x2="70" y2="232"/>
+    <line x1="394" y1="232" x2="442" y2="232"/>
+  </g>
+  <circle cx="256" cy="240" r="104" fill="url(#sol)"/>
+  <rect x="132" y="240" width="248" height="196" rx="30" fill="#1C1A24" stroke="#FFD66B" stroke-width="8"/>
+  <rect x="176" y="300" width="160" height="16" rx="8" fill="#F5F0E8"/>
+  <rect x="176" y="340" width="104" height="16" rx="8" fill="#F5F0E8" opacity="0.55"/>
 </svg>

@@ -1,4 +1,4 @@
-# Cartas de Charlemos
+# Cartas de Sale a la Luz
 
 Las 160 cartas de la noche, 10 por categoría, más 4 especiales. Este archivo es la fuente de verdad: `pnpm importar` lo convierte a JSON en `src/content/`.
 

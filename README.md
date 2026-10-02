@@ -1,4 +1,4 @@
-# Charlemos
+# Sale a la Luz
 
 Juego de cartas de conversación (estilo *En Palabras*) para una noche con amigos, parejas y familia alrededor de un solo celular que pasa de mano. No hay puntos ni ganadores: la web muestra una pregunta por pantalla y dice a quién le toca responder.
 

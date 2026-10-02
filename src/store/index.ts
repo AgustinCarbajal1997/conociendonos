@@ -191,7 +191,7 @@ export const useStore = create<Store>()(
       reiniciarHistorial: () => set({ historialVisto: [] }),
     }),
     {
-      name: 'charlemos',
+      name: 'sale-a-la-luz',
       version: 1,
       partialize: (s) => ({
         pantalla: s.pantalla,

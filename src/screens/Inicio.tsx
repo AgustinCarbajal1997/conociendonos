@@ -1,5 +1,6 @@
 import { useStore } from '../store';
 import Boton from '../components/Boton';
+import Logo from '../components/Logo';
 
 export default function Inicio() {
   const elegirTipo = useStore((s) => s.elegirTipo);
@@ -12,7 +13,8 @@ export default function Inicio() {
   return (
     <main className="safe-top safe-bottom flex h-full flex-col justify-between px-6 py-8">
       <div className="flex flex-1 flex-col items-center justify-center text-center">
-        <h1 className="text-5xl font-bold tracking-tight">Charlemos</h1>
+        <Logo tamano={120} className="mb-6" />
+        <h1 className="text-5xl font-bold tracking-tight">Sale a la Luz</h1>
         <p className="mt-4 max-w-xs text-lg text-texto-suave">
           Cartas de conversación para una noche con amigos, parejas y familia. Un celular en el centro, una pregunta por pantalla.
         </p>

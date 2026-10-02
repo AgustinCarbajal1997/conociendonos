@@ -26,7 +26,7 @@ export default function Resumen() {
 
   const copiar = async () => {
     try {
-      await navigator.clipboard.writeText(`Favoritas de Charlemos\n${texto}`);
+      await navigator.clipboard.writeText(`Favoritas de Sale a la Luz\n${texto}`);
       setCopiado(true);
       window.setTimeout(() => setCopiado(false), 1500);
     } catch {

@@ -2,7 +2,7 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "charlemos-dev",
+      "name": "sale-a-la-luz-dev",
       "runtimeExecutable": "pnpm",
       "runtimeArgs": ["dev", "--port", "5173"],
       "port": 5173
