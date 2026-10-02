@@ -146,7 +146,7 @@ export default function PantallaCarta() {
       </div>
 
       {aviso && (
-        <div className="pointer-events-none absolute inset-x-0 bottom-[118px] flex justify-center">
+        <div className="pointer-events-none absolute inset-x-0 bottom-[calc(118px+var(--pie))] flex justify-center">
           <span role="status" className="toast flex h-11 items-center gap-2 rounded-full pl-3.5 pr-[18px] text-[15px] font-semibold" style={{ background: 'var(--toast-bg)', color: 'var(--toast-text)', boxShadow: '0 10px 30px -10px rgb(0 0 0 / 0.5)' }}>
             <Corazon tamano={16} grosor={2} lleno />
             {aviso}

@@ -14,6 +14,15 @@ const TAMANOS = [
   { size: '36px', lh: '1.14' },
 ];
 
+function Dedicatoria() {
+  return (
+    <footer className="dedicatoria" aria-label="Dedicatoria">
+      <span>Dedicada a L.B., with love from Paris</span>
+      <span aria-hidden>❤️💍</span>
+    </footer>
+  );
+}
+
 export default function App() {
   const pantalla = useStore((s) => s.pantalla);
   const tamanoLetra = useStore((s) => s.config.tamanoLetra);
@@ -30,12 +39,15 @@ export default function App() {
     document.querySelector('meta[name="theme-color"]')?.setAttribute('content', tema === 'oscuro' ? '#130E0B' : '#F7F3EE');
   }, [tema]);
 
-  switch (pantalla) {
-    case 'inicio': return <Inicio />;
-    case 'jugadores': return <Jugadores />;
-    case 'configuracion': return (<><Jugadores /><Configuracion /></>);
-    case 'carta': return <PantallaCarta />;
-    case 'resumen': return <Resumen />;
-    case 'como-se-juega': return <ComoSeJuega />;
-  }
+  const contenido = (() => {
+    switch (pantalla) {
+      case 'inicio': return <Inicio />;
+      case 'jugadores': return <Jugadores />;
+      case 'configuracion': return (<><Jugadores /><Configuracion /></>);
+      case 'carta': return <PantallaCarta />;
+      case 'resumen': return <Resumen />;
+      case 'como-se-juega': return <ComoSeJuega />;
+    }
+  })();
+  return (<>{contenido}<Dedicatoria /></>);
 }

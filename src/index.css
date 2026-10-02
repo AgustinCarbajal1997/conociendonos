@@ -104,6 +104,27 @@
 
 html, body, #root { height: 100%; }
 
+/* Alto reservado para la dedicatoria fija al pie. */
+:root { --pie: 26px; }
+
+.dedicatoria {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 20;
+  height: calc(max(env(safe-area-inset-bottom), 14px) + var(--pie));
+  padding-bottom: max(env(safe-area-inset-bottom), 14px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  color: var(--muted);
+  pointer-events: none;
+}
+
 body {
   margin: 0;
   background: var(--bg);
@@ -120,7 +141,7 @@ body {
   height: 100%;
   display: flex;
   flex-direction: column;
-  padding: max(env(safe-area-inset-top), 18px) 20px max(env(safe-area-inset-bottom), 22px);
+  padding: max(env(safe-area-inset-top), 18px) 20px calc(max(env(safe-area-inset-bottom), 14px) + var(--pie));
   background: var(--bg-app);
   overflow: hidden;
 }

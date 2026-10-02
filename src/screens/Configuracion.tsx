@@ -95,7 +95,7 @@ export default function Configuracion() {
   return (
     <div className="fixed inset-0 z-10" role="dialog" aria-modal="true" aria-labelledby="titulo-config">
       <button type="button" aria-label="Cerrar" className="aparecer absolute inset-0 w-full" style={{ background: 'var(--scrim)' }} onClick={() => irA('jugadores')} />
-      <div className="subir absolute inset-x-0 bottom-0 top-[104px] flex flex-col rounded-t-[28px] bg-surface px-5 pb-[max(env(safe-area-inset-bottom),22px)] pt-2.5" style={{ boxShadow: 'var(--shadow-sheet)' }}>
+      <div className="subir absolute inset-x-0 bottom-0 top-[104px] flex flex-col rounded-t-[28px] bg-surface px-5 pb-[calc(max(env(safe-area-inset-bottom),14px)+var(--pie))] pt-2.5" style={{ boxShadow: 'var(--shadow-sheet)' }}>
         <div className="flex h-4 justify-center"><span className="h-1 w-9 rounded-sm" style={{ background: 'var(--line)' }} /></div>
         <div className="mt-1 flex h-12 items-center justify-between">
           <div className="flex gap-0.5 rounded-full bg-bg p-[3px]" role="tablist">
