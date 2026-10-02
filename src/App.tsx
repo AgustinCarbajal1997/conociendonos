@@ -27,7 +27,7 @@ export default function App() {
 
   useEffect(() => {
     document.documentElement.dataset.theme = tema;
-    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', tema === 'oscuro' ? '#130E0B' : '#F8F2EA');
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', tema === 'oscuro' ? '#130E0B' : '#F7F3EE');
   }, [tema]);
 
   switch (pantalla) {

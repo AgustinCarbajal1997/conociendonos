@@ -21,37 +21,38 @@
   --ease-flip: cubic-bezier(0.65, 0, 0.35, 1);
 }
 
+/* Modo claro: pastel cálido y parejo. Base crema neutra, acento rosa arcilla, mazos en menta, lavanda, rosa y durazno. */
 :root,
 :root[data-theme='claro'] {
   color-scheme: light;
-  --bg: #f8f2ea;
-  --bg-bottom: #f3ebe0;
-  --bg-app: radial-gradient(130% 55% at 50% -8%, #fbe7d2 0%, #f8f2ea 50%, #f3ebe0 100%);
-  --bg-inicio: radial-gradient(120% 60% at 50% 18%, #fbe7d2 0%, #f8f2ea 50%, #f3ebe0 100%);
-  --surface: #fffbf6;
-  --surface-2: #efe6da;
-  --text: #2a1f18;
-  --muted: #6e5f52;
-  --muted-2: #9a8b7c;
-  --line: rgb(42 31 24 / 0.1);
-  --scrim: rgb(42 31 24 / 0.45);
-  --amber: #e9a83a;
-  --amber-hi: #f7c45a;
-  --on-amber: #1a1208;
-  --amber-text: #8a5a0e;
-  --coral: #f08a6b;
-  --coral-text: #b04a33;
-  --coral-bg: #fbe1d8;
-  --toast-bg: #2a1f18;
-  --toast-text: #f4ece1;
-  --btn2-bg: #fffbf6;
-  --btn2-shadow: inset 0 0 0 1px rgb(42 31 24 / 0.1), 0 6px 18px -12px rgb(42 31 24 / 0.35);
-  --btn1-shadow: 0 10px 24px -14px rgb(138 90 14 / 0.6);
-  --shadow-card: inset 0 1px 0 rgb(255 255 255 / 0.7), 0 18px 40px -24px rgb(42 31 24 / 0.45);
-  --shadow-sheet: 0 -20px 60px -20px rgb(42 31 24 / 0.35);
-  --row-ring: inset 0 0 0 1px rgb(42 31 24 / 0.08);
-  --gradient-especial: linear-gradient(165deg, #f7c45a 0%, #f08a6b 48%, #d98bb0 100%);
-  --glow-especial: rgb(247 196 90 / 0.45);
+  --bg: #f7f3ee;
+  --bg-bottom: #f2ece6;
+  --bg-app: radial-gradient(130% 55% at 50% -8%, #f6e6e2 0%, #f7f3ee 50%, #f2ece6 100%);
+  --bg-inicio: radial-gradient(120% 60% at 50% 18%, #f6e4e1 0%, #f7f3ee 52%, #f2ece6 100%);
+  --surface: #fffcfa;
+  --surface-2: #efe9e4;
+  --text: #2b2320;
+  --muted: #6f6360;
+  --muted-2: #9c908b;
+  --line: rgb(43 35 32 / 0.1);
+  --scrim: rgb(43 35 32 / 0.42);
+  --amber: #d4907e;
+  --amber-hi: #e4a994;
+  --on-amber: #2b1a14;
+  --amber-text: #9a4f3f;
+  --coral: #d98c8c;
+  --coral-text: #a9484c;
+  --coral-bg: #f8e1e1;
+  --toast-bg: #2b2320;
+  --toast-text: #f7f3ee;
+  --btn2-bg: #fffcfa;
+  --btn2-shadow: inset 0 0 0 1px rgb(43 35 32 / 0.09), 0 6px 18px -12px rgb(43 35 32 / 0.3);
+  --btn1-shadow: 0 10px 24px -14px rgb(154 79 63 / 0.55);
+  --shadow-card: inset 0 1px 0 rgb(255 255 255 / 0.7), 0 18px 40px -24px rgb(43 35 32 / 0.35);
+  --shadow-sheet: 0 -20px 60px -20px rgb(43 35 32 / 0.3);
+  --row-ring: inset 0 0 0 1px rgb(43 35 32 / 0.07);
+  --gradient-especial: linear-gradient(165deg, #bfe0d2 0%, #cfc6ee 48%, #f3c9d6 100%);
+  --glow-especial: rgb(207 198 238 / 0.55);
   --q-size: 32px;
   --q-lh: 1.14;
 }
@@ -89,11 +90,11 @@
 }
 
 /* Colores por mazo: carta, texto, nota, chip (sobre el fondo de la app), pila (cartas detrás) y borde interior. */
-[data-mazo='desconocidos'] { --m-card: #bfe3dd; --m-text: #143e3d; --m-note: #2f5f5b; --m-chip: #1e5a58; --m-chip-bg: rgb(30 90 88 / 0.12); --m-stack-1: #9fcfc7; --m-stack-2: #86bdb4; --m-line: rgb(20 62 61 / 0.16); }
-[data-mazo='amigos'] { --m-card: #f6dfa6; --m-text: #4a3610; --m-note: #6b5020; --m-chip: #8a5a0e; --m-chip-bg: rgb(138 90 14 / 0.12); --m-stack-1: #e8c97e; --m-stack-2: #d9b262; --m-line: rgb(74 54 16 / 0.18); }
-[data-mazo='pareja'] { --m-card: #f7cfc0; --m-text: #6e2d1f; --m-note: #7e3a2a; --m-chip: #b04a33; --m-chip-bg: #fbe1d8; --m-stack-1: #ecb5a2; --m-stack-2: #de9e88; --m-line: rgb(110 45 31 / 0.18); }
-[data-mazo='familia'] { --m-card: #e6cbda; --m-text: #4a1c35; --m-note: #6e3556; --m-chip: #7a3358; --m-chip-bg: rgb(122 51 88 / 0.12); --m-stack-1: #d4b0c4; --m-stack-2: #c398ae; --m-line: rgb(74 28 53 / 0.18); }
-[data-mazo='especial'] { --m-card: var(--surface); --m-text: var(--text); --m-note: var(--muted); --m-chip: var(--amber-text); --m-chip-bg: rgb(138 90 14 / 0.12); --m-stack-1: var(--surface-2); --m-stack-2: var(--surface-2); --m-line: var(--line); }
+[data-mazo='desconocidos'] { --m-card: #cfe5db; --m-text: #1f4a3c; --m-note: #3b6a5a; --m-chip: #2e6b57; --m-chip-bg: rgb(46 107 87 / 0.13); --m-stack-1: #b5d5c7; --m-stack-2: #9cc4b4; --m-line: rgb(31 74 60 / 0.16); }
+[data-mazo='amigos'] { --m-card: #dcd6f2; --m-text: #342a66; --m-note: #4f4590; --m-chip: #5b4a9e; --m-chip-bg: rgb(91 74 158 / 0.13); --m-stack-1: #c8c0e6; --m-stack-2: #b4aad9; --m-line: rgb(52 42 102 / 0.16); }
+[data-mazo='pareja'] { --m-card: #f6d3dc; --m-text: #6a2740; --m-note: #8a3f5a; --m-chip: #a8415f; --m-chip-bg: rgb(168 65 95 / 0.13); --m-stack-1: #ebbdca; --m-stack-2: #dea6b7; --m-line: rgb(106 39 64 / 0.16); }
+[data-mazo='familia'] { --m-card: #f9dcc8; --m-text: #68381c; --m-note: #85492b; --m-chip: #9a5230; --m-chip-bg: rgb(154 82 48 / 0.13); --m-stack-1: #efc8ae; --m-stack-2: #e3b396; --m-line: rgb(104 56 28 / 0.16); }
+[data-mazo='especial'] { --m-card: var(--surface); --m-text: var(--text); --m-note: var(--muted); --m-chip: var(--amber-text); --m-chip-bg: rgb(154 79 63 / 0.12); --m-stack-1: var(--surface-2); --m-stack-2: var(--surface-2); --m-line: var(--line); }
 
 :root[data-theme='oscuro'] [data-mazo='desconocidos'] { --m-card: #1e5a58; --m-text: #f1f4ef; --m-note: #cfe3df; --m-chip: #6fc3b8; --m-chip-bg: rgb(111 195 184 / 0.14); --m-stack-1: #194b49; --m-stack-2: #154140; --m-line: rgb(241 244 239 / 0.18); }
 :root[data-theme='oscuro'] [data-mazo='amigos'] { --m-card: #c9952e; --m-text: #1e1507; --m-note: #3a2a0b; --m-chip: #e9b454; --m-chip-bg: rgb(233 180 84 / 0.14); --m-stack-1: #a97d26; --m-stack-2: #8f6a1e; --m-line: rgb(30 21 7 / 0.22); }

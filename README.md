@@ -66,7 +66,7 @@ src/hooks/              useWakeLock, useMantenerApretado
 
 ## Diseño
 
-El sistema visual sale del canvas de Claude Design "Sale a la Luz" (opción A editorial): tipografías Newsreader (display) e Instrument Sans (UI) vía Google Fonts, tokens en [`src/index.css`](src/index.css) como variables CSS que cambian con `data-theme` en `<html>`. El **modo claro (pastel cálido) es el predeterminado**; el oscuro se elige en Configuración → Tema y queda guardado en el celular. Cada mazo define sus colores de carta, texto, nota, chip y pila con `[data-mazo]`, en ambos temas. Las fuentes se cachean en runtime para que la PWA las tenga offline después de la primera carga; si no están, cae a Georgia y la sans del sistema.
+El sistema visual sale del canvas de Claude Design "Sale a la Luz" (opción A editorial): tipografías Newsreader (display) e Instrument Sans (UI) vía Google Fonts, tokens en [`src/index.css`](src/index.css) como variables CSS que cambian con `data-theme` en `<html>`. El **modo claro es el predeterminado**, con una paleta pastel propia (menta, lavanda, rosa y durazno para los mazos, rosa arcilla como acento) que reemplazó los ámbar del canvas; el oscuro se elige en Configuración → Tema y queda guardado en el celular. Cada mazo define sus colores de carta, texto, nota, chip y pila con `[data-mazo]`, en ambos temas. Las fuentes se cachean en runtime para que la PWA las tenga offline después de la primera carga; si no están, cae a Georgia y la sans del sistema.
 
 ## Decisiones que no estaban en el brief
 
