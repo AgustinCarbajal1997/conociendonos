@@ -1,0 +1,231 @@
+{
+  "id": "amigos",
+  "nombre": "Amigos",
+  "descripcion": "Para reírse, debatir y decir lo que no se dice en el grupo",
+  "color": "#E9C46A",
+  "audiencia": "todos",
+  "categorias": [
+    {
+      "id": "rompehielo",
+      "nombre": "Rompehielo",
+      "nivel": 1
+    },
+    {
+      "id": "descomprimir",
+      "nombre": "Descomprimir",
+      "nivel": 1
+    },
+    {
+      "id": "perspectiva",
+      "nombre": "Perspectiva",
+      "nivel": 2
+    },
+    {
+      "id": "profundidad",
+      "nombre": "Profundidad",
+      "nivel": 3
+    }
+  ],
+  "cartas": [
+    {
+      "id": "am-001",
+      "cat": "rompehielo",
+      "texto": "¿Qué comida defenderías en una discusión aunque todos estén en contra?"
+    },
+    {
+      "id": "am-002",
+      "cat": "rompehielo",
+      "texto": "¿Cuál es tu manía más rara que nadie en esta mesa conoce?"
+    },
+    {
+      "id": "am-003",
+      "cat": "rompehielo",
+      "texto": "¿Qué canción te da vergüenza admitir que te gusta?"
+    },
+    {
+      "id": "am-004",
+      "cat": "rompehielo",
+      "texto": "¿Qué app abrís sin darte cuenta cuando estás aburrido?"
+    },
+    {
+      "id": "am-005",
+      "cat": "rompehielo",
+      "texto": "Si tuvieras que comer lo mismo todos los días un año, ¿qué elegirías?"
+    },
+    {
+      "id": "am-006",
+      "cat": "rompehielo",
+      "texto": "¿Qué serie abandonaste a la mitad y todavía decís que la vas a terminar?"
+    },
+    {
+      "id": "am-007",
+      "cat": "rompehielo",
+      "texto": "¿Cuál fue tu peor corte de pelo y quién tuvo la culpa?"
+    },
+    {
+      "id": "am-008",
+      "cat": "rompehielo",
+      "texto": "¿Qué compra reciente te hizo más feliz de lo que debería?"
+    },
+    {
+      "id": "am-009",
+      "cat": "rompehielo",
+      "texto": "¿Qué hacés en los primeros diez minutos después de despertarte?"
+    },
+    {
+      "id": "am-010",
+      "cat": "rompehielo",
+      "texto": "¿Qué opinión impopular tenés sobre comida?"
+    },
+    {
+      "id": "am-011",
+      "cat": "descomprimir",
+      "texto": "Si esta mesa fuera una banda, ¿qué instrumento tocaría cada uno?"
+    },
+    {
+      "id": "am-012",
+      "cat": "descomprimir",
+      "texto": "¿Qué superpoder inútil te gustaría tener?"
+    },
+    {
+      "id": "am-013",
+      "cat": "descomprimir",
+      "texto": "Inventá un título para la película de tu semana."
+    },
+    {
+      "id": "am-014",
+      "cat": "descomprimir",
+      "texto": "¿Qué objeto de tu casa merecería un premio por aguantarte?"
+    },
+    {
+      "id": "am-015",
+      "cat": "descomprimir",
+      "texto": "Si pudieras eliminar una regla social, ¿cuál sería?"
+    },
+    {
+      "id": "am-016",
+      "cat": "descomprimir",
+      "texto": "¿Qué animal sería la persona de tu izquierda y por qué?"
+    },
+    {
+      "id": "am-017",
+      "cat": "descomprimir",
+      "texto": "Si mañana fueras famoso, ¿por qué sería y cómo lo arruinarías?"
+    },
+    {
+      "id": "am-018",
+      "cat": "descomprimir",
+      "texto": "¿Qué feriado nuevo inventarías y cómo se festejaría?"
+    },
+    {
+      "id": "am-019",
+      "cat": "descomprimir",
+      "texto": "Describí a esta mesa como si fuera un equipo de fútbol: ¿quién juega dónde?"
+    },
+    {
+      "id": "am-020",
+      "cat": "descomprimir",
+      "texto": "¿Qué lugar de tu ciudad merece una placa por algo que te pasó ahí?"
+    },
+    {
+      "id": "am-021",
+      "cat": "perspectiva",
+      "texto": "¿Se puede ser buen amigo de alguien con quien no hablás hace un año?"
+    },
+    {
+      "id": "am-022",
+      "cat": "perspectiva",
+      "texto": "¿Qué es más difícil: pedir ayuda o pedir perdón?"
+    },
+    {
+      "id": "am-023",
+      "cat": "perspectiva",
+      "texto": "¿Creés que la gente cambia o solo aprende a disimular?"
+    },
+    {
+      "id": "am-024",
+      "cat": "perspectiva",
+      "texto": "¿Qué opinión tenías hace cinco años que hoy te da vergüenza?"
+    },
+    {
+      "id": "am-025",
+      "cat": "perspectiva",
+      "texto": "¿Preferís que te digan la verdad aunque duela o que te cuiden con una mentira?"
+    },
+    {
+      "id": "am-026",
+      "cat": "perspectiva",
+      "texto": "¿Una amistad necesita verse seguido para seguir siendo amistad?"
+    },
+    {
+      "id": "am-027",
+      "cat": "perspectiva",
+      "texto": "¿Qué se le perdona a un amigo que no se le perdonaría a otra persona?"
+    },
+    {
+      "id": "am-028",
+      "cat": "perspectiva",
+      "texto": "¿Es mejor tener muchos amigos o pocos de verdad? Defendé tu respuesta."
+    },
+    {
+      "id": "am-029",
+      "cat": "perspectiva",
+      "texto": "¿Qué cosa que hoy está bien vista creés que en veinte años va a dar vergüenza?"
+    },
+    {
+      "id": "am-030",
+      "cat": "perspectiva",
+      "texto": "¿La suerte existe o es excusa?"
+    },
+    {
+      "id": "am-031",
+      "cat": "profundidad",
+      "texto": "¿Qué te gustaría que este grupo supiera de vos y nunca contaste?"
+    },
+    {
+      "id": "am-032",
+      "cat": "profundidad",
+      "texto": "¿De qué estás orgulloso y sentís que nadie lo nota?"
+    },
+    {
+      "id": "am-033",
+      "cat": "profundidad",
+      "texto": "¿Qué miedo te acompaña desde chico?"
+    },
+    {
+      "id": "am-034",
+      "cat": "profundidad",
+      "texto": "¿Hay algo que te gustaría que alguien de esta mesa te perdone?"
+    },
+    {
+      "id": "am-035",
+      "cat": "profundidad",
+      "texto": "¿Qué parte de vos escondés cuando estás con gente?"
+    },
+    {
+      "id": "am-036",
+      "cat": "profundidad",
+      "texto": "¿Qué momento con alguien de esta mesa te marcó más de lo que esa persona sabe?"
+    },
+    {
+      "id": "am-037",
+      "cat": "profundidad",
+      "texto": "¿Cuándo fue la última vez que lloraste y por qué?"
+    },
+    {
+      "id": "am-038",
+      "cat": "profundidad",
+      "texto": "¿Qué te gustaría escuchar de un amigo y nunca te dijeron?"
+    },
+    {
+      "id": "am-039",
+      "cat": "profundidad",
+      "texto": "¿Qué decisión de tu vida todavía no sabés si fue correcta?"
+    },
+    {
+      "id": "am-040",
+      "cat": "profundidad",
+      "texto": "¿Qué te da miedo que cambie en este grupo con los años?"
+    }
+  ]
+}

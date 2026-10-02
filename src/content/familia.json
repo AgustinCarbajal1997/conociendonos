@@ -1,0 +1,231 @@
+{
+  "id": "familia",
+  "nombre": "Familia",
+  "descripcion": "Para hablar entre generaciones de lo que se vive en casa",
+  "color": "#6B4FA0",
+  "audiencia": "familia",
+  "categorias": [
+    {
+      "id": "rompehielo",
+      "nombre": "Rompehielo",
+      "nivel": 1
+    },
+    {
+      "id": "raices",
+      "nombre": "Raíces",
+      "nivel": 2
+    },
+    {
+      "id": "sobre-mi",
+      "nombre": "Sobre mí",
+      "nivel": 2
+    },
+    {
+      "id": "profundidad",
+      "nombre": "Profundidad",
+      "nivel": 3
+    }
+  ],
+  "cartas": [
+    {
+      "id": "fa-001",
+      "cat": "rompehielo",
+      "texto": "¿Qué comida de la casa extrañarías más si te fueras lejos?"
+    },
+    {
+      "id": "fa-002",
+      "cat": "rompehielo",
+      "texto": "¿Cuál es la frase que más repite alguien de esta familia?"
+    },
+    {
+      "id": "fa-003",
+      "cat": "rompehielo",
+      "texto": "¿Qué objeto de la casa tiene más historia?"
+    },
+    {
+      "id": "fa-004",
+      "cat": "rompehielo",
+      "texto": "¿Qué costumbre familiar le parecería rara a un visitante?"
+    },
+    {
+      "id": "fa-005",
+      "cat": "rompehielo",
+      "texto": "¿Qué foto familiar te gustaría volver a sacar hoy?"
+    },
+    {
+      "id": "fa-006",
+      "cat": "rompehielo",
+      "texto": "¿Qué película o programa vieron tantas veces juntos que ya la citan?"
+    },
+    {
+      "id": "fa-007",
+      "cat": "rompehielo",
+      "texto": "¿Quién de la familia es el peor para guardar un secreto?"
+    },
+    {
+      "id": "fa-008",
+      "cat": "rompehielo",
+      "texto": "¿Cuál fue el mejor regalo que recibiste de alguien de esta familia?"
+    },
+    {
+      "id": "fa-009",
+      "cat": "rompehielo",
+      "texto": "¿Qué apodo familiar tiene la mejor historia detrás?"
+    },
+    {
+      "id": "fa-010",
+      "cat": "rompehielo",
+      "texto": "¿Qué discusión se repite en cada reunión familiar?"
+    },
+    {
+      "id": "fa-011",
+      "cat": "raices",
+      "texto": "¿Qué sabés de cómo se conocieron tus abuelos?"
+    },
+    {
+      "id": "fa-012",
+      "cat": "raices",
+      "texto": "¿Qué tradición se perdió en la familia y te gustaría recuperar?"
+    },
+    {
+      "id": "fa-013",
+      "cat": "raices",
+      "texto": "¿De dónde viene tu apellido y qué historia trae?"
+    },
+    {
+      "id": "fa-014",
+      "cat": "raices",
+      "texto": "¿Qué trabajo hacían tus bisabuelos?"
+    },
+    {
+      "id": "fa-015",
+      "cat": "raices",
+      "texto": "¿Qué receta de la familia merece que alguien la escriba antes de que se pierda?"
+    },
+    {
+      "id": "fa-016",
+      "cat": "raices",
+      "texto": "¿Qué lugar es \"el pueblo\" o \"la casa\" de la familia, aunque ya nadie viva ahí?"
+    },
+    {
+      "id": "fa-017",
+      "cat": "raices",
+      "texto": "¿Qué historia de un abuelo o abuela te gustaría que todos conocieran?"
+    },
+    {
+      "id": "fa-018",
+      "cat": "raices",
+      "texto": "¿Qué objeto heredado tiene más valor para vos y por qué?"
+    },
+    {
+      "id": "fa-019",
+      "cat": "raices",
+      "texto": "¿Qué decisión de alguien de generaciones anteriores cambió el rumbo de la familia?"
+    },
+    {
+      "id": "fa-020",
+      "cat": "raices",
+      "texto": "¿Qué te hubiera gustado preguntarle a alguien de la familia que ya no está?"
+    },
+    {
+      "id": "fa-021",
+      "cat": "sobre-mi",
+      "texto": "¿Qué rasgo tuyo es claramente heredado y cuál es solo tuyo?"
+    },
+    {
+      "id": "fa-022",
+      "cat": "sobre-mi",
+      "texto": "¿Qué frase de tus padres te descubriste repitiendo?"
+    },
+    {
+      "id": "fa-023",
+      "cat": "sobre-mi",
+      "texto": "¿Qué momento familiar te marcó más de lo que ellos imaginan?"
+    },
+    {
+      "id": "fa-024",
+      "cat": "sobre-mi",
+      "texto": "¿En qué te parecés a la persona de la familia con la que menos te llevás?"
+    },
+    {
+      "id": "fa-025",
+      "cat": "sobre-mi",
+      "texto": "¿Qué aprendiste en esta casa que todavía usás todos los días?"
+    },
+    {
+      "id": "fa-026",
+      "cat": "sobre-mi",
+      "texto": "¿Qué rol tenés en la familia (el que organiza, el que calma, el que llega tarde) y te gusta?"
+    },
+    {
+      "id": "fa-027",
+      "cat": "sobre-mi",
+      "texto": "¿Qué hiciste distinto de cómo lo hacían tus padres, a propósito?"
+    },
+    {
+      "id": "fa-028",
+      "cat": "sobre-mi",
+      "texto": "¿Qué cosa de tu familia te dio vergüenza de chico y hoy te enorgullece?"
+    },
+    {
+      "id": "fa-029",
+      "cat": "sobre-mi",
+      "texto": "¿Qué valor te inculcaron que hoy cuestionás?"
+    },
+    {
+      "id": "fa-030",
+      "cat": "sobre-mi",
+      "texto": "¿Qué parte de tu personalidad solo sale cuando estás con la familia?"
+    },
+    {
+      "id": "fa-031",
+      "cat": "profundidad",
+      "texto": "¿Qué te hubiera gustado que te preguntaran cuando eras chico?"
+    },
+    {
+      "id": "fa-032",
+      "cat": "profundidad",
+      "texto": "¿Qué le agradecerías a alguien de esta mesa y nunca dijiste?"
+    },
+    {
+      "id": "fa-033",
+      "cat": "profundidad",
+      "texto": "¿Hay algo que te costó perdonar en la familia?"
+    },
+    {
+      "id": "fa-034",
+      "cat": "profundidad",
+      "texto": "¿Qué te preocupa de esta familia cuando pensás en el futuro?"
+    },
+    {
+      "id": "fa-035",
+      "cat": "profundidad",
+      "texto": "¿Qué te gustaría que esta familia hiciera distinto de ahora en adelante?"
+    },
+    {
+      "id": "fa-036",
+      "cat": "profundidad",
+      "texto": "¿Qué momento difícil de la familia te enseñó más?"
+    },
+    {
+      "id": "fa-037",
+      "cat": "profundidad",
+      "texto": "¿Qué te gustaría que tus padres (o tus hijos) entendieran de vos?"
+    },
+    {
+      "id": "fa-038",
+      "cat": "profundidad",
+      "texto": "¿De qué no se habla en esta familia y creés que debería hablarse?"
+    },
+    {
+      "id": "fa-039",
+      "cat": "profundidad",
+      "texto": "¿Qué recuerdo con alguien de esta mesa te gustaría volver a vivir?"
+    },
+    {
+      "id": "fa-040",
+      "cat": "profundidad",
+      "texto": "¿Qué esperás que digan de vos en una reunión familiar dentro de treinta años?"
+    }
+  ]
+}

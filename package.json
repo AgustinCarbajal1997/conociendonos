@@ -1,0 +1,37 @@
+{
+  "name": "charlemos",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Juego de cartas de conversación para una noche con amigos, parejas y familia alrededor de un solo celular.",
+  "scripts": {
+    "dev": "vite --host",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview --host",
+    "importar": "tsx scripts/importar-cartas.ts",
+    "validar": "tsx scripts/validar-cartas.ts",
+    "test": "pnpm validar && vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc -b"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-swipeable": "^7.0.2",
+    "workbox-window": "^7.4.1",
+    "zustand": "^5.0.8"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.1.13",
+    "@types/node": "^22.18.0",
+    "@types/react": "^18.3.24",
+    "@types/react-dom": "^18.3.7",
+    "@vitejs/plugin-react": "^4.7.0",
+    "tailwindcss": "^4.1.13",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.2",
+    "vite": "^6.3.6",
+    "vite-plugin-pwa": "^1.0.3",
+    "vitest": "^3.2.4"
+  }
+}

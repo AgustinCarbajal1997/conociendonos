@@ -1,0 +1,22 @@
+[
+  {
+    "id": "profundiza",
+    "nombre": "Profundizá",
+    "texto": "Quien respondió la última carta cuenta un poco más. El resto puede hacerle una pregunta."
+  },
+  {
+    "id": "devolve",
+    "nombre": "Devolvé",
+    "texto": "Respondé la pregunta anterior y después elegí a quién hacérsela."
+  },
+  {
+    "id": "elegi-vos",
+    "nombre": "Elegí vos",
+    "texto": "Elegí la categoría de la próxima carta."
+  },
+  {
+    "id": "todos-responden",
+    "nombre": "Todos responden",
+    "texto": "La próxima pregunta la responde toda la mesa, una persona a la vez."
+  }
+]

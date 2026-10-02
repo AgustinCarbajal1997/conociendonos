@@ -1,0 +1,231 @@
+{
+  "id": "pareja",
+  "nombre": "Pareja",
+  "descripcion": "Para que cada pareja se escuche frente a la mesa",
+  "color": "#B9432A",
+  "audiencia": "pareja",
+  "categorias": [
+    {
+      "id": "rompehielo",
+      "nombre": "Rompehielo",
+      "nivel": 1
+    },
+    {
+      "id": "historia",
+      "nombre": "Nuestra historia",
+      "nivel": 2
+    },
+    {
+      "id": "perspectiva",
+      "nombre": "Perspectiva",
+      "nivel": 2
+    },
+    {
+      "id": "profundidad",
+      "nombre": "Profundidad",
+      "nivel": 3
+    }
+  ],
+  "cartas": [
+    {
+      "id": "pa-001",
+      "cat": "rompehielo",
+      "texto": "¿Qué manía mía te da ternura y cuál te saca de quicio?"
+    },
+    {
+      "id": "pa-002",
+      "cat": "rompehielo",
+      "texto": "¿Cuál es nuestro chiste interno favorito y de dónde salió?"
+    },
+    {
+      "id": "pa-003",
+      "cat": "rompehielo",
+      "texto": "¿Qué canción es nuestra aunque nunca lo dijimos?"
+    },
+    {
+      "id": "pa-004",
+      "cat": "rompehielo",
+      "texto": "¿Qué plan de pareja te gustaría repetir mañana mismo?"
+    },
+    {
+      "id": "pa-005",
+      "cat": "rompehielo",
+      "texto": "¿Qué hago cuando creo que no me ves?"
+    },
+    {
+      "id": "pa-006",
+      "cat": "rompehielo",
+      "texto": "¿Qué comida pido siempre y vos ya sabés antes de que abra la boca?"
+    },
+    {
+      "id": "pa-007",
+      "cat": "rompehielo",
+      "texto": "¿Qué es lo más ridículo por lo que discutimos alguna vez?"
+    },
+    {
+      "id": "pa-008",
+      "cat": "rompehielo",
+      "texto": "Si hiciéramos un reality de nosotros, ¿cómo se llamaría?"
+    },
+    {
+      "id": "pa-009",
+      "cat": "rompehielo",
+      "texto": "¿Qué cosa mía imitás mejor? Hacelo ahora."
+    },
+    {
+      "id": "pa-010",
+      "cat": "rompehielo",
+      "texto": "¿Quién de los dos es peor para llegar a horario y cuál es la excusa clásica?"
+    },
+    {
+      "id": "pa-011",
+      "cat": "historia",
+      "texto": "¿Qué pensaste de mí la primera vez que hablamos de verdad?"
+    },
+    {
+      "id": "pa-012",
+      "cat": "historia",
+      "texto": "¿Cuál fue el momento en que supiste que esto iba en serio?"
+    },
+    {
+      "id": "pa-013",
+      "cat": "historia",
+      "texto": "¿Qué crisis nos hizo más fuertes?"
+    },
+    {
+      "id": "pa-014",
+      "cat": "historia",
+      "texto": "¿Qué cambió en vos desde que estamos juntos?"
+    },
+    {
+      "id": "pa-015",
+      "cat": "historia",
+      "texto": "¿Qué momento nuestro contarías si tuvieras que resumirnos en una historia?"
+    },
+    {
+      "id": "pa-016",
+      "cat": "historia",
+      "texto": "¿Qué detalle de nuestras primeras salidas recordás y yo seguro no?"
+    },
+    {
+      "id": "pa-017",
+      "cat": "historia",
+      "texto": "¿Cuál fue el primer viaje juntos y qué salió mal?"
+    },
+    {
+      "id": "pa-018",
+      "cat": "historia",
+      "texto": "¿Qué le dirías a la versión mía que recién te conocía?"
+    },
+    {
+      "id": "pa-019",
+      "cat": "historia",
+      "texto": "¿Qué persona fue clave para que estemos juntos hoy?"
+    },
+    {
+      "id": "pa-020",
+      "cat": "historia",
+      "texto": "¿Qué cosa que hoy nos parece normal al principio te parecía imposible?"
+    },
+    {
+      "id": "pa-021",
+      "cat": "perspectiva",
+      "texto": "¿Qué creés que la gente ve de nosotros desde afuera?"
+    },
+    {
+      "id": "pa-022",
+      "cat": "perspectiva",
+      "texto": "¿Qué significa para vos \"cuidar\" a alguien?"
+    },
+    {
+      "id": "pa-023",
+      "cat": "perspectiva",
+      "texto": "¿Qué parte de nuestra rutina valorás más?"
+    },
+    {
+      "id": "pa-024",
+      "cat": "perspectiva",
+      "texto": "¿Cómo te imaginás un domingo nuestro dentro de diez años?"
+    },
+    {
+      "id": "pa-025",
+      "cat": "perspectiva",
+      "texto": "¿Qué aprendiste de relaciones anteriores que aplicás con nosotros?"
+    },
+    {
+      "id": "pa-026",
+      "cat": "perspectiva",
+      "texto": "¿Qué pareja de las que conocemos admirás y por qué?"
+    },
+    {
+      "id": "pa-027",
+      "cat": "perspectiva",
+      "texto": "¿Qué es más importante en una pareja: parecerse o complementarse?"
+    },
+    {
+      "id": "pa-028",
+      "cat": "perspectiva",
+      "texto": "¿Qué cosa que hacemos distinto a los demás te gusta de nosotros?"
+    },
+    {
+      "id": "pa-029",
+      "cat": "perspectiva",
+      "texto": "¿Qué creés que yo pienso que vos pensás de mí?"
+    },
+    {
+      "id": "pa-030",
+      "cat": "perspectiva",
+      "texto": "¿Cuánto de lo que somos como pareja es decisión y cuánto es costumbre?"
+    },
+    {
+      "id": "pa-031",
+      "cat": "profundidad",
+      "texto": "¿Qué necesitás de mí y te cuesta pedir?"
+    },
+    {
+      "id": "pa-032",
+      "cat": "profundidad",
+      "texto": "¿Cuándo te sentiste más solo estando conmigo?"
+    },
+    {
+      "id": "pa-033",
+      "cat": "profundidad",
+      "texto": "¿Qué inseguridad tuya creés que yo no termino de entender?"
+    },
+    {
+      "id": "pa-034",
+      "cat": "profundidad",
+      "texto": "¿Qué te gustaría que te dijera más seguido?"
+    },
+    {
+      "id": "pa-035",
+      "cat": "profundidad",
+      "texto": "¿Qué tema evitamos y creés que deberíamos hablar?"
+    },
+    {
+      "id": "pa-036",
+      "cat": "profundidad",
+      "texto": "¿Qué fue lo más difícil que hiciste por nosotros y nunca lo conté como tal?"
+    },
+    {
+      "id": "pa-037",
+      "cat": "profundidad",
+      "texto": "¿Qué miedo tenés sobre nuestro futuro que todavía no dijiste en voz alta?"
+    },
+    {
+      "id": "pa-038",
+      "cat": "profundidad",
+      "texto": "¿En qué momento sentiste que te entendí sin que hablaras?"
+    },
+    {
+      "id": "pa-039",
+      "cat": "profundidad",
+      "texto": "¿Qué te gustaría que fuera distinto en cómo discutimos?"
+    },
+    {
+      "id": "pa-040",
+      "cat": "profundidad",
+      "texto": "¿Qué te hace sentir elegido por mí?"
+    }
+  ]
+}

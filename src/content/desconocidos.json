@@ -1,0 +1,231 @@
+{
+  "id": "desconocidos",
+  "nombre": "Desconocidos",
+  "descripcion": "Para romper el hielo cuando no todos se conocen",
+  "color": "#1D6F65",
+  "audiencia": "todos",
+  "categorias": [
+    {
+      "id": "rompehielo",
+      "nombre": "Rompehielo",
+      "nivel": 1
+    },
+    {
+      "id": "primeras-impresiones",
+      "nombre": "Primeras impresiones",
+      "nivel": 1
+    },
+    {
+      "id": "perspectiva",
+      "nombre": "Perspectiva",
+      "nivel": 2
+    },
+    {
+      "id": "un-poco-mas",
+      "nombre": "Un poco más",
+      "nivel": 3
+    }
+  ],
+  "cartas": [
+    {
+      "id": "de-001",
+      "cat": "rompehielo",
+      "texto": "¿Qué hacés mejor que la mayoría de la gente?"
+    },
+    {
+      "id": "de-002",
+      "cat": "rompehielo",
+      "texto": "¿Cuál fue la última cosa que te hizo reír solo?"
+    },
+    {
+      "id": "de-003",
+      "cat": "rompehielo",
+      "texto": "¿Qué lugar recomendarías a cualquiera que visite tu ciudad?"
+    },
+    {
+      "id": "de-004",
+      "cat": "rompehielo",
+      "texto": "¿Qué habilidad inútil tenés y de cuál te enorgullecés?"
+    },
+    {
+      "id": "de-005",
+      "cat": "rompehielo",
+      "texto": "¿Qué estás aprendiendo ahora, aunque sea sin querer?"
+    },
+    {
+      "id": "de-006",
+      "cat": "rompehielo",
+      "texto": "¿Qué comida te lleva directo a tu infancia?"
+    },
+    {
+      "id": "de-007",
+      "cat": "rompehielo",
+      "texto": "¿Qué hacés un domingo ideal, sin obligaciones?"
+    },
+    {
+      "id": "de-008",
+      "cat": "rompehielo",
+      "texto": "¿Cuál es el viaje que más contás cuando conocés a alguien?"
+    },
+    {
+      "id": "de-009",
+      "cat": "rompehielo",
+      "texto": "¿Qué te hace perder la noción del tiempo?"
+    },
+    {
+      "id": "de-010",
+      "cat": "rompehielo",
+      "texto": "¿Qué te preguntan siempre cuando decís a qué te dedicás?"
+    },
+    {
+      "id": "de-011",
+      "cat": "primeras-impresiones",
+      "texto": "¿Qué creés que la persona de tu derecha hace los domingos?"
+    },
+    {
+      "id": "de-012",
+      "cat": "primeras-impresiones",
+      "texto": "Adiviná: ¿quién de la mesa cocina mejor? Después confirmen."
+    },
+    {
+      "id": "de-013",
+      "cat": "primeras-impresiones",
+      "texto": "¿Qué suele suponer la gente de vos que no es cierto?"
+    },
+    {
+      "id": "de-014",
+      "cat": "primeras-impresiones",
+      "texto": "¿Qué te llamó la atención de alguien de esta mesa cuando llegó?"
+    },
+    {
+      "id": "de-015",
+      "cat": "primeras-impresiones",
+      "texto": "¿Qué tipo de persona creés que parecés en los primeros cinco minutos?"
+    },
+    {
+      "id": "de-016",
+      "cat": "primeras-impresiones",
+      "texto": "Adiviná qué música escucha la persona de tu izquierda. Después que confirme."
+    },
+    {
+      "id": "de-017",
+      "cat": "primeras-impresiones",
+      "texto": "¿Quién de la mesa creés que es el más ordenado? ¿Y el más desordenado?"
+    },
+    {
+      "id": "de-018",
+      "cat": "primeras-impresiones",
+      "texto": "¿Qué creés que la persona de enfrente hacía a los 15 años?"
+    },
+    {
+      "id": "de-019",
+      "cat": "primeras-impresiones",
+      "texto": "¿Qué primera impresión diste alguna vez y después tuviste que corregir?"
+    },
+    {
+      "id": "de-020",
+      "cat": "primeras-impresiones",
+      "texto": "Elegí a alguien de la mesa y decí una cosa que ya sabés de esa persona y una que te gustaría saber."
+    },
+    {
+      "id": "de-021",
+      "cat": "perspectiva",
+      "texto": "¿Qué consejo te dieron que ignoraste y después resultó cierto?"
+    },
+    {
+      "id": "de-022",
+      "cat": "perspectiva",
+      "texto": "¿Es mejor saber mucho de pocas cosas o un poco de todo?"
+    },
+    {
+      "id": "de-023",
+      "cat": "perspectiva",
+      "texto": "¿Qué se sobrevalora en el mundo laboral?"
+    },
+    {
+      "id": "de-024",
+      "cat": "perspectiva",
+      "texto": "¿Qué costumbre de otra cultura deberíamos adoptar?"
+    },
+    {
+      "id": "de-025",
+      "cat": "perspectiva",
+      "texto": "¿El talento se nace o se entrena?"
+    },
+    {
+      "id": "de-026",
+      "cat": "perspectiva",
+      "texto": "¿Qué es lo primero que notás de una persona cuando la conocés?"
+    },
+    {
+      "id": "de-027",
+      "cat": "perspectiva",
+      "texto": "¿Qué tradición argentina te parece sobrevalorada?"
+    },
+    {
+      "id": "de-028",
+      "cat": "perspectiva",
+      "texto": "¿Vale la pena mudarse lejos por un trabajo?"
+    },
+    {
+      "id": "de-029",
+      "cat": "perspectiva",
+      "texto": "¿Qué hace que una juntada sea buena?"
+    },
+    {
+      "id": "de-030",
+      "cat": "perspectiva",
+      "texto": "¿Creés que la gente se conoce mejor en una cena o en un viaje?"
+    },
+    {
+      "id": "de-031",
+      "cat": "un-poco-mas",
+      "texto": "¿Qué decisión reciente te hizo sentir más vos?"
+    },
+    {
+      "id": "de-032",
+      "cat": "un-poco-mas",
+      "texto": "¿Qué te gustaría que la gente notara de vos más seguido?"
+    },
+    {
+      "id": "de-033",
+      "cat": "un-poco-mas",
+      "texto": "¿Qué cambió en vos en el último año?"
+    },
+    {
+      "id": "de-034",
+      "cat": "un-poco-mas",
+      "texto": "¿Qué te hace sentir en casa?"
+    },
+    {
+      "id": "de-035",
+      "cat": "un-poco-mas",
+      "texto": "¿Qué te hubiera gustado que alguien te dijera a los 18?"
+    },
+    {
+      "id": "de-036",
+      "cat": "un-poco-mas",
+      "texto": "¿Qué te cuesta más de lo que la gente cree?"
+    },
+    {
+      "id": "de-037",
+      "cat": "un-poco-mas",
+      "texto": "¿Quién te conoce mejor y por qué esa persona?"
+    },
+    {
+      "id": "de-038",
+      "cat": "un-poco-mas",
+      "texto": "¿Qué estás esperando que pase este año?"
+    },
+    {
+      "id": "de-039",
+      "cat": "un-poco-mas",
+      "texto": "¿Qué cosa chica te alegra el día sin falta?"
+    },
+    {
+      "id": "de-040",
+      "cat": "un-poco-mas",
+      "texto": "¿Qué aprendiste de una persona que ya no está en tu vida?"
+    }
+  ]
+}
