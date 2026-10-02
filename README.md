@@ -37,7 +37,7 @@ Los ids se asignan por orden dentro de cada mazo (`am-001`, `pa-031`, etc.). Si 
 Es una SPA estática: la salida de `pnpm build` (carpeta `dist/`) se sirve desde cualquier hosting.
 
 - **Vercel**: importar el repo; detecta Vite solo. Build `pnpm build`, output `dist`.
-- **GitHub Pages**: `BASE_PATH=/nombre-del-repo/ pnpm build` y publicar `dist/`. El `base` de Vite y el `start_url` del manifest salen de esa variable.
+- **GitHub Pages**: el workflow [`.github/workflows/pages.yml`](.github/workflows/pages.yml) corre tests, hace `BASE_PATH=/<repo>/ pnpm build` y publica `dist/` en cada push a `main`. La web queda en `https://<usuario>.github.io/<repo>/`. Para un build manual: `BASE_PATH=/nombre-del-repo/ pnpm build`.
 
 Probar el build localmente (incluye el service worker):
 
