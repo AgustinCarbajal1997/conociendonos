@@ -15,7 +15,7 @@ export default function Inicio() {
     <main className="pantalla px-6" style={{ background: 'var(--bg-inicio)' }}>
       <div className="flex-[1.2]" />
       <div className="flex flex-col items-center gap-[26px]">
-        <Logo tamano={124} />
+        <Logo tamano={168} className="-my-4" />
         <div className="flex flex-col items-center gap-2.5">
           <h1 className="display m-0 text-center text-[56px] leading-none" style={{ letterSpacing: '-0.025em' }}>
             Sale a la <em className="font-semibold italic text-amber-text">Luz</em>
