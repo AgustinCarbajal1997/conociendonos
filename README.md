@@ -6,7 +6,7 @@ Juego de cartas de conversación (estilo *En Palabras*) para una noche con amigo
 - Modo **Noche**: arma sola la secuencia rompehielo → amigos → parejas → familia → lo que importa (Profundo) → profundidad.
 - Mazo suelto en modo progresivo, mezclado o por categoría.
 - PWA: funciona sin señal después de la primera carga. Sin cuenta, sin backend.
-- Publicada en **https://agustincarbajal1997.github.io/conociendonos/** (se redeploya sola con cada push a `main`).
+- Publicada en **https://salealaluz.com.ar** (se redeploya sola con cada push a `main`). El link viejo de github.io redirige ahí.
 
 ## Correr
 
@@ -38,7 +38,7 @@ Los ids se asignan por orden dentro de cada mazo (`am-001`, `pa-031`, `pr-012`, 
 Es una SPA estática: la salida de `pnpm build` (carpeta `dist/`) se sirve desde cualquier hosting.
 
 - **Vercel**: importar el repo; detecta Vite solo. Build `pnpm build`, output `dist`.
-- **GitHub Pages**: el workflow [`.github/workflows/pages.yml`](.github/workflows/pages.yml) corre tests, hace `BASE_PATH=/<repo>/ pnpm build` y publica `dist/` en cada push a `main`. La web queda en `https://<usuario>.github.io/<repo>/`. Para un build manual: `BASE_PATH=/nombre-del-repo/ pnpm build`.
+- **GitHub Pages**: el workflow [`.github/workflows/pages.yml`](.github/workflows/pages.yml) corre tests, hace `BASE_PATH=/<repo>/ pnpm build` y publica `dist/` en cada push a `main`. La ruta base sale de `actions/configure-pages`: con dominio propio es `/`, sin dominio es `/<repo>/`. El dominio `salealaluz.com.ar` está en DonWeb, con cuatro registros A a las IPs de GitHub Pages y un CNAME de `www` a `agustincarbajal1997.github.io`. Para un build manual: `BASE_PATH=/nombre-del-repo/ pnpm build`.
 
 Probar el build localmente (incluye el service worker):
 
