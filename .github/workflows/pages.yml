@@ -28,12 +28,15 @@ jobs:
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - run: pnpm test
-      - run: pnpm build
-        env:
-          BASE_PATH: /${{ github.event.repository.name }}/
-      - uses: actions/configure-pages@v5
+      # Con dominio propio base_path viene vacío y la app se sirve desde "/";
+      # sin dominio viene "/conociendonos". Así el build se adapta solo.
+      - id: pages
+        uses: actions/configure-pages@v5
         with:
           enablement: true
+      - run: pnpm build
+        env:
+          BASE_PATH: ${{ steps.pages.outputs.base_path }}/
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
