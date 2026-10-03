@@ -18,7 +18,7 @@ function Dedicatoria() {
   return (
     <footer className="dedicatoria" aria-label="Dedicatoria">
       <span>Dedicada a L.B., with love from Paris</span>
-      <span aria-hidden>❤️💍</span>
+      <span aria-hidden>❤️</span>
     </footer>
   );
 }
