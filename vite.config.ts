@@ -3,6 +3,24 @@ import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
 import { VitePWA } from 'vite-plugin-pwa';
 import { resolve } from 'node:path';
+import type { Connect, Plugin } from 'vite';
+
+// GitHub Pages redirige /para-luz a /para-luz/; en local (dev y preview) hacemos lo mismo.
+const barraFinal: Connect.NextHandleFunction = (req, res, next) => {
+  const [ruta, query] = (req.url ?? '').split('?');
+  if (ruta.endsWith('/para-luz')) {
+    res.statusCode = 301;
+    res.setHeader('Location', `${ruta}/${query ? `?${query}` : ''}`);
+    res.end();
+    return;
+  }
+  next();
+};
+const redirigirParaLuz: Plugin = {
+  name: 'redirigir-para-luz',
+  configureServer: (server) => { server.middlewares.use(barraFinal); },
+  configurePreviewServer: (server) => { server.middlewares.use(barraFinal); },
+};
 
 // Para GitHub Pages: BASE_PATH=/sale-a-la-luz/ pnpm build
 const base = process.env.BASE_PATH ?? '/';
@@ -19,6 +37,7 @@ export default defineConfig({
     },
   },
   plugins: [
+    redirigirParaLuz,
     react(),
     tailwindcss(),
     VitePWA({
