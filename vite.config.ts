@@ -2,12 +2,22 @@ import { defineConfig } from 'vitest/config';
 import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
 import { VitePWA } from 'vite-plugin-pwa';
+import { resolve } from 'node:path';
 
 // Para GitHub Pages: BASE_PATH=/sale-a-la-luz/ pnpm build
 const base = process.env.BASE_PATH ?? '/';
 
 export default defineConfig({
   base,
+  build: {
+    rollupOptions: {
+      // Dos páginas: la app y la carta en /para-luz/ (no enlazada desde la app).
+      input: {
+        main: resolve(import.meta.dirname, 'index.html'),
+        'para-luz': resolve(import.meta.dirname, 'para-luz/index.html'),
+      },
+    },
+  },
   plugins: [
     react(),
     tailwindcss(),
@@ -34,6 +44,9 @@ export default defineConfig({
       workbox: {
         globPatterns: ['**/*.{js,css,html,svg,png,json,woff2}'],
         navigateFallback: `${base}index.html`,
+        // La carta no se precachea ni la intercepta el service worker de la app.
+        navigateFallbackDenylist: [/\/para-luz/],
+        globIgnores: ['para-luz/**', 'assets/para-luz-*'],
         runtimeCaching: [
           {
             urlPattern: /^https:\/\/fonts\.(googleapis|gstatic)\.com\/.*/i,
